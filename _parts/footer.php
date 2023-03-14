@@ -121,7 +121,7 @@ $data = mysqli_fetch_assoc($mgznSet);
       <div class="Footer_item">
         <ul>
           <li><a href="" >運営会社</a></li>
-          <li><a href="" >プライバシーポリシーaa</a></li>
+          <li><a href="" >プライバシーポリシー</a></li>
         </ul>
       </div>
       <div class="Footer_copyright">
