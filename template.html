@@ -1,0 +1,214 @@
+<!-- テンプレート -->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    resetCSS
+    ブラウザ固有のデザインをリセットする
+    ブラウザによる見た目の違いをなくす
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.0/destyle.css">
+  <!-- サイトデザイン用CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <title>Tarzan｜Jungle Recipe</title>
+</head>
+<body>
+  <div class="Wrapper">
+    <header>
+      <div class="Header_box">
+        <div class="Header_logo">
+          <a class="Logo_link" href="#">
+            <img src="img/logo/logo.png" alt="Tarzan Jungle Recipe" width="500">
+          </a>
+        </div>
+        <p>すぐ・かんたん・ヘルシー</p>
+        <nav class="NavPC">
+          <ul class="NavPC_list">
+            <li class="NavPC_item">
+              <a href="index.html" class="NavPC_link" target="_blank">Recipe</a>
+            </li>
+            <li class="NavPC_item">
+              <a href="index.html" class="NavPC_link" target="_blank">Magazines</a>
+            </li>
+            <li class="NavPC_item">
+              <a href="https://tarzanweb.jp/" class="NavPC_link" target="_blank">About Tarzan</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="Logo_line">
+      </div>
+    </header>
+
+    <div class="Content">
+      <main class="Main">
+        <div class="Box">
+          <div class="Box_header">
+            <div class="Box_inner">
+              <h1 class="Box_mainTitle">
+                メインタイトル
+              </h1>
+            </div>
+          </div>
+          <div class="Box_body">
+            <div class="Box_inner narrowArea">
+              コンテンツ本体
+
+              <!-- トップボタン -->
+
+              <div class="Btn">
+                <a class="Btn" href="#top">
+                  <img src="img/btn/top.png" class="Btn_top" onclick="goClick()" width="40"></a>
+              </div>
+
+              <!-- ボタン右 -->
+
+              <div class="Btn">
+                <a class="Btn -right" href="#top">
+                  <img src="img/btn/right.png" class="Btn_right" onclick="goClick()" width="40"></a>
+              </div>
+
+              <!-- ボタン左 -->
+
+              <div class="Btn">
+                <a class="Btn -left" href="#top">
+                  <img src="img/btn/left.png" class="Btn_left" onclick="goClick()" width="40"></a>
+              </div>
+
+              <!-- サーチ黒 -->
+
+              <div class="Btn">
+                <a class="Btn -black" href="#top">
+                  <img src="img/search/black.png" class="black" onclick="goClick()" width="60"></a>
+              </div>
+
+              <!-- サーチ白 -->
+
+              <div class="btnBox">
+                <a class="btn -white" href="#top">
+                  <img src="img/search/white.png" class="white" onclick="goClick()" width="60"></a>
+              </div>
+
+            </div>
+          </div>
+          <div class="Box_footer">
+            <div class="Box_inner basicArea">
+              コンテンツフッター（省略可）
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer class="Footer">
+      <div class="Footer_body1">
+
+        <div class="Footer_box">
+
+          <div class="Footer_sns">
+            <a class="sns_link" href="https://twitter.com/tarzan_mag" target="_blank">
+              <img src="img/sns_icon/twitter.png" alt="Twitter" width="40">
+            </a>
+
+            <a class="sns_link" href="https://www.instagram.com/tarzanweb/" target="_blank">
+              <img src="img/sns_icon/instagram.png" alt="instagram" width="40">
+            </a>
+
+            <a class="sns_link" href="https://www.facebook.com/Tarzanmag/" target="_blank">
+              <img src="img/sns_icon/facebook.png" alt="facebook" width="40">
+            </a>
+
+            <a class="sns_link" href="https://page.line.me/oa-tarzan?openQrModal=true" target="_blank">
+              <img src="img/sns_icon/line.png" alt="line" width="40">
+            </a>
+
+            <a class="sns_link" href="https://www.youtube.com/channel/UCSIikpN5XEYBvRI6_Onti1w" target="_blank">
+              <img src="img/sns_icon/youtube.png" alt="youtube" width="40">
+            </a>
+          </div>
+
+          <div class="Footer_logo">
+            <a class="Logo_link" href="#">
+              <img src="img/logo/logo.png" alt="Tarzan Jungle Recipe" width="500">
+            </a>
+          </div>
+
+          <nav class="NavPC">
+            <ul class="NavPC_listF">
+              <li class="NavPC_item">
+                <a href="index.html" class="NavPC_link" target="_blank">Recipe</a>
+              </li>
+              <li class="NavPC_item">
+                <a href="index.html" class="NavPC_link" target="_blank">Magazines</a>
+              </li>
+              <li class="NavPC_item">
+                <a href="https://tarzanweb.jp/" class="NavPC_link" target="_blank">About Tarzan</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="Footer_mgzn">
+
+            <div class="mgznBox1">
+              <div class="mgr-20">
+                <p><font size="5"><b>最新号</b></font></p>
+                <p>毎月第2・4木曜日発売<br>1986年創刊</p>
+              </div>
+
+              <div class="mgr-20">
+                <a href="https://www.amazon.co.jp/dp/B09QP1Y71R/" target="_blank">
+                  <img src="img/sns_icon/amazon.png" width="150" alt="amazon">
+                </a>
+              </div>
+
+              <div class="mgr-20">
+                <a href="https://magazineworld.jp/tarzan/" target="_blank">
+                  <img src="img/sns_icon/magazinehouse.png" width="170" alt="magazinehouse">
+                </a>
+              </div>
+            </div>
+
+            <div class="mgznBox2">
+              <p><small>no</small>827 02.10(木)発売</p>
+              <a href="https://tarzanweb.jp/post-254646" target="_blank">
+                <img src="img/mgzn/mgzn01.jpg" width="180" alt="magazine">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="Footer_body2">
+
+        <p>本サイトで紹介しているエクササイズや健康情報は、専門家への取材を行っておりますが、個別具体的な疾病や傷病に対応しておりません。<br>
+紹介されているエクササイズなどを試される場合は、ご自身の体調に応じて、専門家や医療機関への相談をお勧めします。</p>
+
+        <p>当サイトでは、2021年3月31日以前更新記事内の掲載商品価格等は特に表示がない場合は税抜価格、<br>
+  2021年4月1日更新記事内の掲載商品価格は、原則税込価格で表記しています。</p>
+
+        <p>Trademark TARZAN owned by EDGAR RICE BURROUGHS,INC. and used by permission.<br>
+  『ターザン』の登録商標は、米国エドガー・ライス・バローズ社と(株)マガジンハウスとの契約によって使用されています。</p>
+
+        <a href="https://magazineworld.jp/info/company/" target="_blank">運営会社</a>
+        <a href="https://magazineworld.jp/info/privacy/" target="_blank">プライバシーポリシー</a>
+
+        <div class="Footer_copyright">
+          &copy;1945-2021 by Magazine House Co.,Ltd(Tokyo)
+        </div>
+
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/googlefonts.js"></script>
+  <script src="js/index.js"></script>
+
+</body>
+</html>

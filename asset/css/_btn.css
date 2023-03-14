@@ -1,0 +1,63 @@
+/* スムーズに上がる */
+
+html{
+scroll-behavior:smooth;
+}
+
+/* ボタン */
+.Btn_top {
+  transition   : .3s;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.Btn_top:hover {
+  transform    : scale(1.1,1.1);
+}
+
+
+/* 検索窓 */
+
+/* 並び替え窓 */
+
+/* 検索ボタン */
+
+.black {
+transition: 0.1s;
+}
+
+.black:hover {
+filter: drop-shadow(3px 3px 3px #000);
+}
+
+.white {
+transition: 0.1s;
+}
+
+.white:hover {
+filter: drop-shadow(3px 3px 3px #fff);
+}
+
+/* 画像変更とページ遷移の左右ボタン */
+
+.Btn_right {
+transition: 0.3s;
+}
+
+.Btn_right:hover {
+opacity:0.6;
+}
+
+.Btn_left {
+transition: 0.3s;
+}
+
+.Btn_left:hover {
+opacity: 0.6;
+}
+
+/* 確認のためコンテンツ本体伸ばしてます */
+.Box_inner.narrowArea {
+  height: 1000px;
+}

@@ -1,0 +1,196 @@
+/* レシピ詳細ページ */
+
+/*
+以下は各々で作成予定？
+ヘッダー下ロール:「_common.css」
+各種ボタン:「_btn.css」
+タグ:「_Tag.css」
+サイドバー:「_Sidebar.css」
+*/
+
+/* main {
+  margin: 40px 0;
+}
+ */
+/* main.detail_main {
+  display: flex;
+} */
+
+.detail_main{
+  /* display: flex; */
+}
+
+.main_bodyLeft{
+  width: 770px;
+  margin: 70px 35px 70px 70px;
+}
+
+.main_bodyRight {
+  width: 300px;
+  margin: 70px 70px 70px 35px;
+  float: left;
+}
+
+.breadcrumbs {
+  margin: 30px 0 30px 70px;
+}
+
+.breadcrumbs li {
+  float: left;
+}
+
+.breadcrumbs li::after{
+  content: '>';
+  display: inline-block;
+  padding: 0 10px; /*左右に余白*/
+}
+
+.breadcrumbs li:last-child::after{
+  display: none;
+}
+
+.detail_top {
+  /* border: solid 2px #000; */
+  height: 800px;
+}
+
+.detail_top_box {
+  height: 180px;
+  background-color: #000;
+  position: relative;
+}
+
+.detail_tag {
+  background-color: #fff;
+  font-size: 20px;
+  margin: 15px;
+  margin-right: 0;
+  padding:5px 15px;
+  float: left;
+}
+
+.detail_date {
+  color: #fff;
+  float: right;
+  font-size: 20px;
+  margin: 20px 15px;
+}
+
+.detail_title {
+  color: #fff;
+  font-size: 36px;
+  position: absolute;
+  border-left: solid 7px #fff;
+  padding-left: 15px;
+  margin: 70px 0 0 15px ;
+
+}
+.detail_middle_box{
+  height: 432px;
+
+}
+.detail_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail_bottom_box {
+  height: 185px;
+  background-color: #D5D5D5;
+  position: relative;
+}
+
+.detail_star {
+  width: 415px;
+  height: 75px;
+  position: absolute;
+  margin: 10px 0 0 500px;
+}
+
+
+.detail_description {
+  font-size: 24px;
+  margin: 0 20px 20px;
+  padding-top: 65px;
+}
+
+.calorie {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 105px;
+  margin: 30px 0 90px;
+  border-bottom: solid 5px #000;
+}
+
+.calorie_text {
+  font-size: 26px;
+  padding-top: 20px;
+}
+
+.calorie_amount {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.ingredients,
+.howToCook {
+  margin: 90px 0;
+}
+
+.ingredients_title,
+.howToCook_title {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  border-left: solid 5px #000;
+  padding-left: 15px;
+}
+
+/* .ingredients_title::before,
+.howToCook_title::before {
+  width: 10px;
+  height: 30px;
+  background-color: #000;
+} */
+
+.ingredients_title_sub,
+.howToCook_title_sub {
+  font-size: 26px;
+}
+
+.ingredients_text,
+.howToCook_text {
+  font-size: 22px;
+  padding: 30px 20px;
+}
+
+.ingredients_box {
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15px;
+
+}
+
+.ingredients_list{
+  margin-bottom: 15px 0;
+}
+
+
+.howToCook_box {
+display: flex;
+}
+.howToCook_no {
+ margin-right: 15px;
+}
+
+.howToCook_way {
+    padding-bottom: 30px;
+}
+
+.detail_error {
+  font-size: 24px;
+  margin: 200px 0;
+}

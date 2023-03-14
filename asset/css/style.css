@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+/* 共通デザイン */
+@import url(_btn.css);
+
+/* パーツデザイン */
+@import url(_Comment.css);
+@import url(_Detail.css);
+@import url(_Footer.css);
+@import url(_Header.css);
+@import url(_Index.css);
+@import url(_Recommend.css);
+@import url(_Result.css);
+@import url(_Sidebar.css);

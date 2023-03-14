@@ -1,0 +1,89 @@
+/* ヘッダー */
+/* Header {
+  height: 200px;
+  background-color:#fff;
+} */
+
+.Header_box {
+  margin: 0 auto;
+  padding: 0 70px;
+  max-width: 1280px;
+}
+
+Header p {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.Header_logo{
+  margin-top: 20px;
+  float:left;
+}
+
+.NavPC {
+  align-items: center;
+}
+
+ul.NavPC_list {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+li.NavPC_item {
+  border-right: solid 1px #aaa;
+  width: 100%;
+}
+
+li.NavPC_item:last-child{
+  border-right: none;
+}
+
+.NavPC_link {
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 0.8em;
+  transition: 0.3s;
+}
+
+.NavPC_link:hover {
+  opacity: 0.2;
+}
+
+.Logo_line{
+    width: 100%;
+    max-width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    background: url(../img/logo/logo_line.png) ;
+    background-position: center;
+    /*画像のサイズを指定する*/
+    -webkit-background-size: 200px 40px;
+    background-size:  200px 40px;
+     /* animation:アニメーション名 , アニメーションの時間 , アニメーションのタイミング , アニメーションの繰り返し */
+    -webkit-animation: bgscroll 0s linear infinite;
+    animation: bgscroll 10s linear infinite;
+
+}
+
+/*アニメーションの指定
+background-position: x軸 , y軸;
+今回は縦にスクロールする
+背景画像のサイズ分移動させる
+*/
+
+@-webkit-keyframes bgscroll {
+  0% {background-position: 0 0;}
+  100% {background-position: -100% 0px;}
+}
+
+@keyframes bgscroll {
+  0% {background-position: 0 0;}
+  100% {background-position: -100% 0px;}
+}
