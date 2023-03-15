@@ -77,7 +77,7 @@
       <!-- ↓SEARCHの検索フォーム -->
       <div class="Search_form">
         <div class="Search_formBox">
-          <form class="Search_formArea" action="result.php" method="get">
+          <form class="Search_formArea" action="./result.php" method="get">
             <select class="Search_formSelect" name="Search" id="">
               <!-- <option value="">カロリーから探す</option> -->
               <option hidden value="">カロリーから探す</option>
