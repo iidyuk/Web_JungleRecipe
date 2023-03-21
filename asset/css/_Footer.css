@@ -33,7 +33,7 @@ padding-bottom: 50px;
 
 .Footer_box {
   width: 100%;
-  padding-left: 70px;
+  /* padding-left: 70px; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

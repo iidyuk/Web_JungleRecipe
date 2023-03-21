@@ -7,7 +7,6 @@
             <li><?php echo $val; ?></li>
           <?php endforeach; ?>
 
-
         </ul>
       </div>
     <?php endif; ?>

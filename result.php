@@ -1,18 +1,20 @@
 <?php
   session_start();
-  $debug = false;
+  $debug = true;
   // require_once dirname(__FILE__) . '/functions.php';
   require_once __DIR__ . '/functions.php';
   $dbobj = connectTarzan();
 
   // 変数値確認。
-  $search    = isset($_GET['Search'])    ? $_GET['Search']    : Null;
+  $search    = isset($_GET['Search'])    ? $_GET['Search']    : Null; //memo getでパラメータを受け取っているかの確認
   //
   $_SESSION['search'] = $search;
   $query = $_SESSION['search'];
   // 1ページに5件ずつ表示するための変数
   $num_page = 5;
   // $scope = "";
+
+  // memo: ↓getで受け取った値をswitchで条件分岐している
   switch ($query) {
     case 0: // 全件出力
       $scope = " >= 0";
@@ -33,6 +35,8 @@
   }
 
 
+
+  // memo: ↓SQL文 データベースから値を取得している
 
   // localStorage.setItem('scope2', $scope);
   // $scope2 = localStorage.setItem('scope2');
@@ -94,6 +98,7 @@
   //                              ON recipetag_tbl.rtag_tagid = tag_tbl.tag_id
   //                            group by recipe_id';
 
+  // memo: ↓「並び替え」用のコード
   $select1 = 0;
   $count2 = "";
   if (isset($_GET["select1"])) {
@@ -139,12 +144,17 @@
         //   break;
     }
   }
+
+  // memo:↓画面表示のための実行文？
   // SQLを実行
   // OKの場合⇒変数$resultSetにテーブル情報を代入
   // NGの場合⇒falseを返して、「mysqli_error」でエラーを返す。
   $resultSet1 = mysqli_query($dbobj, $sql1) or die(mysqli_error($dbobj));
   $resultSet2 = mysqli_query($dbobj, $sql2) or die(mysqli_error($dbobj));
+
   // 件数をカウント
+  // memo:↓ ">num_rows;"はmysqli_resultクラスのメソッド
+  // memo: mysqli_query()関数は値として mysqli_resultオブジェクト を返すらしい
   $rescount = $resultSet2->num_rows;
 
   //レコード件数(取得件数)表示
@@ -167,7 +177,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.0/destyle.css">
   <link rel="stylesheet" href="./asset/css/style.css">
   <link rel="stylesheet" href="./asset/css/jquery.rateyo.css">
-  <link rel="icon" href="./img/logo/tree1.ico">
+  <link rel="icon" href="./asset/img/logo/tree.ico">
   <title>検索結果</title>
 </head>
 
@@ -189,12 +199,13 @@
   <main class="main">
     <div class="column_main sp_pd">
       <header class="line_title page">
+        <!-- memo:↓ 検索結果のタイトル -->
         <h1 class="msg">
           <?php echo $msg ?>の検索結果一覧
         </h1>
-        <!-- <p class="page"><span class="ff_en">
-          /<?php echo $bl ?>
-        </span>ページ</p> -->
+        <!-- <p class="page"><span class="ff_en">   </span>ページ</p> -->
+        <!-- memo:↓レコード件数(取得件数)表示 -->
+          <?php echo $bl ?>   
       </header>
     </div>
     <!-- 検索結果表示 -->
@@ -203,12 +214,14 @@
       <p class="Result_p total ff_en" name="con">
         <span>
           <?php
+          // memo:↓件数表示
           echo $rescount;
           ?>
         </span> recipe
         <div class="searchArea">
           <!-- <form action="result.php?Search=<?php echo $query; ?>" method="GET"> -->
           <form action="result.php" method="GET">
+            <!-- memo:↓$queryは getで受け取った値12行目 -->
             <input type="hidden" name="Search" value="<?php echo $query; ?>" />
             <select class="Result_select1" name="select1">
               <option disabled selected value="">並び替え</option>
@@ -220,7 +233,7 @@
               <!-- <option value="5">評価点(降順)</option>
               <option value="6">評価点(昇順)</option> -->
             </select>
-            <input type="image" src="./img/search/black.png" width="30" height="30" alt="検索" value="検索する">
+            <input type="image" src="./asset/img/search/black.png" width="30" height="30" alt="検索" value="検索する">
           </form>
         </div>
       </p>
@@ -235,25 +248,27 @@
         <ul class='paginathing'>
           <?php
           while ($data = mysqli_fetch_assoc($resultSet1)) {
-            if (!($count == $data['recipe_id'])) {
+            if (!($count == $data['recipe_id'])) { // memo 'recipe_id' 00かどうかの判定
               $count = $data['recipe_id'];
               $html .= '<li class="mgzn"><a class="Result_a" href="detail.php?id=' . $data['recipe_id'] . '">';
               $html .= '<div class="mgzn1">';
               if ($count <= 9) {
-                $html .= '<p class="ph"><span class="Result_span"><img class="Result_img" src="./img/recipe0' . $count . '.jpg" alt=""></span></p>';
+                $html .= '<p class="ph"><span class="Result_span"><img class="Result_img" src="./asset/img/recipe0' . $count . '.jpg" alt=""></span></p>';
               } else if ($count >= 10) {
-                $html .= '<p class="ph"><span class="Result_span"><img class="Result_img" src="./img/recipe' . $count . '.jpg" alt=""></span></p>';
+                $html .= '<p class="ph"><span class="Result_span"><img class="Result_img" src="./asset/img/recipe' . $count . '.jpg" alt=""></span></p>';
               }
               $html .= '</div>';
               $html .= '<div class="mgzn2">';
+              // memo: ↓SQL文コメントの星の数で並び替える用？
               $sql4 = 'SELECT recipe_id, com_recipeid, AVG(com_rate) AS avg
-             FROM recipe_tbl LEFT JOIN comment_tbl
-             ON recipe_tbl.recipe_id=comment_tbl.com_recipeid
-             WHERE recipe_id=' . $data['recipe_id'] .
-                ' GROUP BY recipe_id';
+                FROM recipe_tbl LEFT JOIN comment_tbl
+                ON recipe_tbl.recipe_id=comment_tbl.com_recipeid
+                WHERE recipe_id=' . $data['recipe_id'] .
+                    ' GROUP BY recipe_id';
               $rankingSet = mysqli_query($dbobj, $sql4) or die(mysqli_error($dbobj));
               $ranking = mysqli_fetch_assoc($rankingSet);
-              $ranknum = h($ranking['avg']);
+              $ranknum = h($ranking['avg'] );
+
               if ($ranknum > 0) {
                 $html .=  ' <div class="Result_star star" data-rateyo-rating="' . h($ranking['avg']) .
                   '">' .
@@ -277,6 +292,12 @@
           $html .= '</li>';
           ?>
           <?php echo $html; ?>
+          <?php if ($debug) : ?>
+            <div class="debug">
+              <p>デバッグ用</p>
+              <p>debug: <?php print $query; ?></p>
+            </div>
+          <?php endif; ?>
         </ul>
       </div>
 

@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.0/destyle.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/jquery.rateyo.css">
+  <link rel="stylesheet" href="asset/css/style.css">
+  <link rel="stylesheet" href="asset/css/jquery.rateyo.css">
   <link rel="icon" href="http://localhost/g05/img/logo/tree.ico">
   <title>内容確認｜Jungle Recipe</title>
 </head>
 
 <body>
-  <?php require 'header.html'; ?>
+  <?php require './_parts/header.html'; ?>
 
   <div class="CommentConfirm_content">
     <div class="CommentConfirm_inner">
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <?php require 'footer.php'; ?>
+  <?php require './_parts/footer.php'; ?>
 
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

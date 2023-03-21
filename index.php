@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./asset/img/logo/tree.ico">
+  <title>Behave｜Jungle Recipe</title>
+  <!-- ↓リセットCSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.0/destyle.css">
+  <!-- ↓slickのJQ&CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="./asset/css/style.css">
+  <!-- rateyoのCSS -->
+  <link rel="stylesheet" href="asset/css/jquery.rateyo.css">
+</head>
+
 <?php
   $debug = false;
   require_once __DIR__ . '/functions.php';
@@ -27,32 +47,12 @@
   $backnumSet = mysqli_query($dbobj, $sql_backnumber) or die(mysqli_error($dbobj));
 ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./asset/img/logo/tree.ico">
-  <title>Behave｜Jungle Recipe</title>
-  <!-- ↓リセットCSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.0/destyle.css">
-  <!-- ↓slickのJQ&CSS -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-  <!-- 共通CSS -->
-  <link rel="stylesheet" href="asset/css/style.css">
-  <!-- rateyoのCSS -->
-  <link rel="stylesheet" href="asset/css/jquery.rateyo.css">
-</head>
-
 <body class="Index_body">
   <?php if ($debug) : ?>
     <div class="Debug" style="position:fixed; top:0; padding:10px 30px; background-color:#29d586cc; border:solid 10px #6e85525c; border-radius:10px; color:#2c724f;">
       <p>デバッグ用</p>
       <p>$sql_searchTag : <?php print $sql_searchTag; ?></p>
-      <p><?php v(date); ?></p>
+      <p><?php v($tagSet ); ?></p>
       <p>スクロール位置：<span id="scroll-amount">0px</span></p>
     </div>
   <?php endif; ?>
@@ -400,6 +400,7 @@
       });
     });
 
+    // debug用
     $(window).scroll(function() {
       $('#scroll-amount').text($(this).scrollTop() + 'px');
     });

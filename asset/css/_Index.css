@@ -227,13 +227,13 @@
 
 /* 謎のクラス ここで表示内容のサイズ調整 */
 .Ranking_container .slick-slide img {
-    display: block;
-    max-width: 250px;
-    width: 20vw;
-    height: 400px;
-    margin: 0 0 0 -13px; /* 左右の微調整 */
-    padding: 0 14px 0 14px; /* 間隔の微調整 */
-    object-fit: cover;
+  display: block;
+  max-width: 250px;
+  width: 20vw;
+  height: 184px;
+  margin: 0 0 0 -13px; /* 左右の微調整 */
+  padding: 0 14px 0 14px; /* 間隔の微調整 */
+  object-fit: contain;
 }
 
 .Ranking_sliderImage {
@@ -242,7 +242,7 @@
 .Ranking_sliderCaption {
   max-width: 222px;
   width: 16vw;
-  min-height: 120px;
+  min-height: 200px;
   text-align: left;
   border-bottom: solid #eee 4px;
 }
@@ -346,8 +346,8 @@
   margin: 0 auto 0 64px;
 }
 .New_container .slick-slide img {
-  width: 179px;
-  height: 195px;
+  width: 160px;
+  height: 96px;
   object-fit: cover;
 }
 

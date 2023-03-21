@@ -1,81 +1,82 @@
 <?php
-session_start();
-session_regenerate_id(TRUE);
+  session_start();
+  session_regenerate_id(TRUE);
 
-$debug = false;
-require_once dirname(__FILE__) . '/functions.php';
+  $debug = false;
+  require_once dirname(__FILE__) . '/functions.php';
 
-$id    = isset($_GET['id'])    ? $_GET['id']    : NULL;
-$sessid    = isset($_SESSION['id'])    ? $_SESSION['id']    : NULL;
+  $id    = isset($_GET['id'])    ? $_GET['id']    : NULL;
+  $sessid    = isset($_SESSION['id'])    ? $_SESSION['id']    : NULL;
 
-if ($sessid !== $id) {
-  unset($_SESSION['id']);
-  unset($_SESSION['name']);
-  unset($_SESSION['rating']);
-  unset($_SESSION['body']);
-}
+  if ($sessid !== $id) {
+    unset($_SESSION['id']);
+    unset($_SESSION['name']);
+    unset($_SESSION['rating']);
+    unset($_SESSION['body']);
+  }
 
-$dbobj = connectTarzan();
-$query    = isset($_SESSION['search'])    ? $_SESSION['search']    : NULL;
-$sql = 'SELECT * FROM recipe_tbl';
-$trSet = mysqli_query($dbobj, $sql) or die(mysqli_error($dbobj));
-$bl = mysqli_affected_rows($dbobj);
-$trData = mysqli_fetch_assoc($trSet);
-$bl = false;
-
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $_SESSION['id'] = $id;
-  $sql2 = sprintf(
-    'SELECT * FROM recipe_tbl WHERE recipe_id=%d',
-    mysqli_real_escape_string($dbobj, $id)
-  );
-  $stSet = mysqli_query($dbobj, $sql2) or die(mysqli_error($dbobj));
+  $dbobj = connectTarzan();
+  // memo:↓$_SESSION['search'] は
+  $query    = isset($_SESSION['search'])    ? $_SESSION['search']    : NULL;
+  $sql = 'SELECT * FROM recipe_tbl';
+  $trSet = mysqli_query($dbobj, $sql) or die(mysqli_error($dbobj));
   $bl = mysqli_affected_rows($dbobj);
-  $stData = mysqli_fetch_assoc($stSet);
+  $trData = mysqli_fetch_assoc($trSet);
+  $bl = false;
 
-  $sql6 = 'SELECT recipe_id, com_recipeid, AVG(com_rate) AS avg
-  FROM recipe_tbl LEFT JOIN comment_tbl
-  ON recipe_tbl.recipe_id=comment_tbl.com_recipeid
-  WHERE recipe_id=' . $id .
-    ' GROUP BY recipe_id';
-  $rankingSet = mysqli_query($dbobj, $sql6) or die(mysqli_error($dbobj));
-  $ranking = mysqli_fetch_assoc($rankingSet);
-} else {
-}
+  if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $_SESSION['id'] = $id;
+    $sql2 = sprintf(
+      'SELECT * FROM recipe_tbl WHERE recipe_id=%d',
+      mysqli_real_escape_string($dbobj, $id)
+    );
+    $stSet = mysqli_query($dbobj, $sql2) or die(mysqli_error($dbobj));
+    $bl = mysqli_affected_rows($dbobj);
+    $stData = mysqli_fetch_assoc($stSet);
 
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $sql3 = sprintf(
-    'SELECT * FROM recipetag_tbl LEFT JOIN tag_tbl ON recipetag_tbl.rtag_tagid = tag_tbl.tag_id WHERE rtag_recipeid=%d',
-    mysqli_real_escape_string($dbobj, $id)
-  );
-  $stSet3 = mysqli_query($dbobj, $sql3) or die(mysqli_error($dbobj));
-  $bl = mysqli_affected_rows($dbobj);
-} else {
-}
+    $sql6 = 'SELECT recipe_id, com_recipeid, AVG(com_rate) AS avg
+    FROM recipe_tbl LEFT JOIN comment_tbl
+    ON recipe_tbl.recipe_id=comment_tbl.com_recipeid
+    WHERE recipe_id=' . $id .
+      ' GROUP BY recipe_id';
+    $rankingSet = mysqli_query($dbobj, $sql6) or die(mysqli_error($dbobj));
+    $ranking = mysqli_fetch_assoc($rankingSet);
+  } else {
+  }
 
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $sql4 = sprintf(
-    'SELECT * FROM ingredient_tbl LEFT JOIN recipe_tbl ON ingredient_tbl.ing_id = recipe_tbl.recipe_id WHERE ing_recipeid=%d',
-    mysqli_real_escape_string($dbobj, $id)
-  );
-  $stSet4 = mysqli_query($dbobj, $sql4) or die(mysqli_error($dbobj));
-  $bl = mysqli_affected_rows($dbobj);
-} else {
-}
+  if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql3 = sprintf(
+      'SELECT * FROM recipetag_tbl LEFT JOIN tag_tbl ON recipetag_tbl.rtag_tagid = tag_tbl.tag_id WHERE rtag_recipeid=%d',
+      mysqli_real_escape_string($dbobj, $id)
+    );
+    $stSet3 = mysqli_query($dbobj, $sql3) or die(mysqli_error($dbobj));
+    $bl = mysqli_affected_rows($dbobj);
+  } else {
+  }
 
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $sql5 = sprintf(
-    'SELECT * FROM step_tbl LEFT JOIN recipe_tbl ON step_tbl.step_recipeid = recipe_tbl.recipe_id WHERE step_recipeid=%d',
-    mysqli_real_escape_string($dbobj, $id)
-  );
-  $stSet5 = mysqli_query($dbobj, $sql5) or die(mysqli_error($dbobj));
-  $bl = mysqli_affected_rows($dbobj);
-} else {
-}
+  if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql4 = sprintf(
+      'SELECT * FROM ingredient_tbl LEFT JOIN recipe_tbl ON ingredient_tbl.ing_id = recipe_tbl.recipe_id WHERE ing_recipeid=%d',
+      mysqli_real_escape_string($dbobj, $id)
+    );
+    $stSet4 = mysqli_query($dbobj, $sql4) or die(mysqli_error($dbobj));
+    $bl = mysqli_affected_rows($dbobj);
+  } else {
+  }
+
+  if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql5 = sprintf(
+      'SELECT * FROM step_tbl LEFT JOIN recipe_tbl ON step_tbl.step_recipeid = recipe_tbl.recipe_id WHERE step_recipeid=%d',
+      mysqli_real_escape_string($dbobj, $id)
+    );
+    $stSet5 = mysqli_query($dbobj, $sql5) or die(mysqli_error($dbobj));
+    $bl = mysqli_affected_rows($dbobj);
+  } else {
+  }
 
 ?>
 
@@ -93,10 +94,10 @@ if (isset($_GET['id'])) {
    -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.0/destyle.css">
   <!-- サイトデザイン用CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/jquery.rateyo.css">
+  <link rel="stylesheet" href="./asset/css/style.css">
+  <link rel="stylesheet" href="./asset/css/jquery.rateyo.css">
 
-  <link rel="icon" href="http://localhost/g05/img/logo/tree.ico">
+  <link rel="icon" href="./asset/img/logo/tree.ico">
   <?php if ($id) : ?>
     <title><?php echo h($stData['recipe_title']) . '｜Jungle Recipe'; ?></title>
   <?php else : ?>
@@ -118,10 +119,11 @@ if (isset($_GET['id'])) {
   <?php endif; ?>
 
   <div class="Wrapper">
-    <?php require 'header.html'; ?>
+    <?php require_once(__DIR__ . '/_parts/header.html');?>
+    
 
-    <nav>
-      <ol class="breadcrumbs">
+    <nav class="breadcrumbs">
+      <ol>
         <li><a href="index.php">トップページ</a></li>
         <li><a href="result.php?Search=<?php echo $query; ?>">検索結果</a></li>
         <li>
@@ -181,7 +183,7 @@ if (isset($_GET['id'])) {
                   <div class="detail_title"><?php echo h($stData['recipe_title']); ?></div>
                 </div>
                 <div class="detail_middle_box">
-                  <img class="detail_img" src="img//<?php echo h($stData['recipe_img']); ?>.jpg" alt="<?php echo h($stData['recipe_title']); ?>">
+                  <img class="detail_img" src="./asset/img/<?php echo h($stData['recipe_img']); ?>.jpg" alt="<?php echo h($stData['recipe_title']); ?>">
                 </div>
                 <div class="detail_bottom_box">
 
@@ -254,13 +256,15 @@ if (isset($_GET['id'])) {
         </div>
       </div>
 
-      <div class="main_bodyRight">
-        <img src="img/detail_sidebar.png" alt="">
-        <?php //require 'sidebar.php';
-        ?>
-        <?php //require 'recommend.php';
-        ?>
-      </div>
+      <?php /* 
+        <div class="main_bodyRight">
+          <img src="img/detail_sidebar.png" alt="">
+          <?php //require 'sidebar.php';
+          ?>
+          <?php //require 'recommend.php';
+          ?>
+        </div>
+       */ ?>
       <!-- </div> -->
 
       <!-- Topへ戻るボタン -->
@@ -271,19 +275,18 @@ if (isset($_GET['id'])) {
       </div>
 
     </main>
-    <?php require 'footer.php';
-    ?>
+    <?php require_once(__DIR__ . '/_parts/footer.php');?>
   </div>
 
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/googlefonts.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/comment.js"></script>
-  <script src="js/jquery.rateyo.min.js"></script>
-  <script src="js/rateyo.js"></script>
+  <script src="./asset/js/common.js"></script>
+  <script src="./asset/js/googlefonts.js"></script>
+  <script src="./asset/js/index.js"></script>
+  <script src="./asset/js/comment.js"></script>
+  <script src="./asset/js/jquery.rateyo.min.js"></script>
+  <script src="./asset/js/rateyo.js"></script>
   <script>
     $('.CommentList_totalStar').rateYo({
       readOnly: true,
