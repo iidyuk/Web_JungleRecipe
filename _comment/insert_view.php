@@ -1,17 +1,19 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.0/destyle.css">
-  <link rel="stylesheet" href="asset/css/style.css">
-  <link rel="stylesheet" href="asset/css/jquery.rateyo.css">
+  <link rel="stylesheet" href="./asset/css/style.css">
+  <link rel="stylesheet" href="./asset/css/jquery.rateyo.css">
   <title>送信完了｜Jungle Recipe</title>
 </head>
 
-<body>
-  <?php require './_parts/header.html'; ?>
+<body> -->
+  <?php
+  //  require './_parts/header.html'; 
+  ?>
 
   <div class="CommentConfirm_content">
     <div class="CommentConfirm_inner">
@@ -39,18 +41,20 @@
 
       <div class="CommentConfirm_btnBox">
         <p><a class="CommentConfirm_btn" href="detail.php?id=<?php echo h($id); ?>">レシピに戻る</a></p>
-        <p><a class="CommentConfirm_btn" href=" index.php">ホームに戻る</a></p>
+        <p><a class="CommentConfirm_btn" href="index.php">ホームに戻る</a></p>
       </div>
     </div>
   </div>
 
-  <?php require './_parts/footer.php'; ?>
+  <?php
+    // require './_parts/footer.php';
+  ?>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="js/comment.js"></script>
   <script src="js/jquery.rateyo.min.js"></script>
-  <script src="js/rateyo.js"></script>
+  <script src="js/rateyo.js"></script> -->
 
-</body>
+<!-- </body>
 
-</html>
+</html> -->

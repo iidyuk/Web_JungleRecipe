@@ -1,14 +1,17 @@
 <?php
 
-require_once (__DIR__ . '/../functions.php');
+  require_once (__DIR__ . '/../_function/functions.php');
 
-$dbobj = connectTarzan();
+  $dbobj = connectTarzan();
 
-$sql = 'SELECT * FROM mgzn_tbl ORDER BY mgzn_release DESC';
-$mgznSet = mysqli_query($dbobj, $sql) or die(mysqli_error($dbobj));
-$data = mysqli_fetch_assoc($mgznSet);
+  $sql = 'SELECT * FROM mgzn_tbl ORDER BY mgzn_release DESC';
+  $mgznSet = mysqli_query($dbobj, $sql) or die(mysqli_error($dbobj));
+  $data = mysqli_fetch_assoc($mgznSet);
 
+?>
 
+<?php
+  require_once (__DIR__ . '/../_function/magazine.php');
 ?>
 
 <footer class="Footer">
@@ -18,23 +21,23 @@ $data = mysqli_fetch_assoc($mgznSet);
     <div class="Footer_box">
 
       <div class="Footer_sns">
-        <a class="sns_link" href="" target="_blank">
+        <a class="sns_link" href="">
           <img src="./asset/img/sns_icon/twitter.png" alt="Twitter" width="40">
         </a>
 
-        <a class="sns_link" href="" target="_blank">
+        <a class="sns_link" href="">
           <img src="./asset/img/sns_icon/instagram.png" alt="instagram" width="40">
         </a>
 
-        <a class="sns_link" href="" target="_blank">
+        <a class="sns_link" href="">
           <img src="./asset/img/sns_icon/facebook.png" alt="facebook" width="40">
         </a>
 
-        <a class="sns_link" href="" target="_blank">
+        <a class="sns_link" href="">
           <img src="./asset/img/sns_icon/line.png" alt="line" width="40">
         </a>
 
-        <a class="sns_link" href="" target="_blank">
+        <a class="sns_link" href="">
           <img src="./asset/img/sns_icon/youtube.png" alt="youtube" width="40">
         </a>
       </div>
@@ -70,13 +73,13 @@ $data = mysqli_fetch_assoc($mgznSet);
           </div>
 
           <div class="mgr-20">
-            <a href="<?php echo h($data['mgzn_amazonUrl']) ?>" target="_blank">
+            <a href="">
               <img src="./asset/img/sns_icon/amazon.png" width="150" alt="amazon">
             </a>
           </div>
 
           <div class="mgr-20">
-            <a href="<?php echo h($data['mgzn_url']) ?>" target="_blank">
+            <a href="">
               <img src="./asset/img/sns_icon/magazinehouse.png" width="170" alt="magazinehouse">
             </a>
           </div>
@@ -87,24 +90,23 @@ $data = mysqli_fetch_assoc($mgznSet);
             <a href="" class="Mgzn_box2image">
               <p>
                 <small>no</small><?php echo h($data['mgzn_issueid']) ?>
-                <!-- <?php echo strtr(h($data['mgzn_release']), "-", "/"); ?>発売 -->
                 <?php
+                  $week = [
+                    '日', //0
+                    '月', //1
+                    '火', //2
+                    '水', //3
+                    '木', //4
+                    '金', //5
+                    '土', //6
+                  ];
 
-                $week = [
-                  '日', //0
-                  '月', //1
-                  '火', //2
-                  '水', //3
-                  '木', //4
-                  '金', //5
-                  '土', //6
-                ];
-
-                $mgzn_Rel = h($data['mgzn_release']);
-                $dayOfWeek  = date('w', strtotime($mgzn_Rel));
-                $month = date('m', strtotime($mgzn_Rel));
-                $day = date('d', strtotime($mgzn_Rel));
-                echo $month . '.' . $day . '(' . $week[$dayOfWeek] . ')';
+                  // $mgzn_Rel = h($data['mgzn_release']);
+                  $mgzn_Rel =  $makeReleaseDay; // magazine.phpで日付の値を作成
+                  $dayOfWeek  = date('w', strtotime($mgzn_Rel));
+                  $month = date('m', strtotime($mgzn_Rel));
+                  $day = date('d', strtotime($mgzn_Rel));
+                  echo $month . '.' . $day . '(' . $week[$dayOfWeek] . ')';
                 ?>
                 発売
               </p>
@@ -117,7 +119,7 @@ $data = mysqli_fetch_assoc($mgznSet);
   </div>
 
   <div class="Footer_body2">
-    <div>
+    <div class="Footer_box2">
       <div class="Footer_item">
         <ul>
           <li><a href="" >運営会社</a></li>
@@ -129,4 +131,5 @@ $data = mysqli_fetch_assoc($mgznSet);
       </div>
     </div>
   </div>
+
 </footer>

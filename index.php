@@ -15,12 +15,13 @@
   <!-- 共通CSS -->
   <link rel="stylesheet" href="./asset/css/style.css">
   <!-- rateyoのCSS -->
-  <link rel="stylesheet" href="asset/css/jquery.rateyo.css">
+  <link rel="stylesheet" href="./asset/css/jquery.rateyo.css">
 </head>
 
 <?php
   $debug = false;
-  require_once __DIR__ . '/functions.php';
+  require_once __DIR__ . '/_function/functions.php';
+  // require_once 'functions.php';
 
   $dbobj = connectTarzan();
 
@@ -46,6 +47,9 @@
   $sql_backnumber = 'SELECT * FROM mgzn_tbl WHERE mgzn_release!=(select max(mgzn_release) from mgzn_tbl) ORDER BY mgzn_release DESC LIMIT 4;';
   $backnumSet = mysqli_query($dbobj, $sql_backnumber) or die(mysqli_error($dbobj));
 ?>
+<?php
+  require_once (__DIR__ . '/_function/magazine.php');
+?>
 
 <body class="Index_body">
   <?php if ($debug) : ?>
@@ -59,7 +63,7 @@
 
   <!-- ↓↓header -->
   <?php
-  require_once ( __DIR__ . '/_parts/header.html');
+  require_once __DIR__ . '/_parts/header.html';
   ?>
   <!-- ↑↑header -->
 
@@ -112,27 +116,9 @@
   <!-- ↑↑SEARCH -->
 
   <!-- ↓↓SNSボタン(左サイド) -->
-  <div class="Leftside_sns">
-    <a class="Leftside_snslink" href="https://twitter.com/tarzan_mag" target="_blank">
-      <img src="./asset/img/sns_icon/twitter.png" alt="Twitter" width="40">
-    </a>
-
-    <a class="Leftside_snslink" href="https://www.instagram.com/tarzanweb/" target="_blank">
-      <img src="./asset/img/sns_icon/instagram.png" alt="instagram" width="40">
-    </a>
-
-    <a class="Leftside_snslink" href="https://www.facebook.com/Tarzanmag/" target="_blank">
-      <img src="./asset/img/sns_icon/facebook.png" alt="facebook" width="40">
-    </a>
-
-    <a class="Leftside_snslink" href="https://page.line.me/oa-tarzan?openQrModal=true" target="_blank">
-      <img src="./asset/img/sns_icon/line.png" alt="line" width="40">
-    </a>
-
-    <a class="Leftside_snslink" href="https://www.youtube.com/channel/UCSIikpN5XEYBvRI6_Onti1w" target="_blank">
-      <img src="./asset/img/sns_icon/youtube.png" alt="youtube" width="40">
-    </a>
-  </div>
+  <?php
+  require_once __DIR__ . '/_parts/bar_left.html';
+  ?>
   <!-- ↑↑SNSボタン(左サイド) -->
 
   <!-- ↓↓RANKING -->
@@ -265,9 +251,10 @@
 
       <div class="Backnumber_contentsBox">
         <div class="Backnumber_viewAll">
-          <p><a class="Backnumber_viewAllLink" href="https://magazineworld.jp/tarzan/back/">VIEW ALL</a></p>
+          <p><a class="Backnumber_viewAllLink" >VIEW ALL</a></p>
         </div>
         <div class="Backnumber_contentsBoxInner">
+          <?php $repeatVal = 0; ?>
           <?php while ($data = mysqli_fetch_assoc($backnumSet)) : ?>
             <a class="Backnumber_link" href="">
               <div class="Backnumber_itemBox">
@@ -275,8 +262,18 @@
                   <!-- ↓マガジン号数 -->
                   <div class="Backnumber_issue">No.<?php echo h($data['mgzn_issueid']); ?></div>
                   <!-- ↓マガジン発売日 -->
-                  <div class="Backnumber_release"><?php echo strtr(h($data['mgzn_release']), "-", "/"); ?></div>
-                  <!-- <a href="<?php echo h($data['mgzn_url']); ?>"></a> -->
+                  <div class="Backnumber_release">
+                    <?php
+                    // echo strtr(h($data['mgzn_release']), "-", "/");
+                    echo $bNReleaseDay[$repeatVal];
+                    $repeatVal = $repeatVal + 1;
+                    ?>
+                  </div>
+                  <a href="
+                    <?php
+                    // echo h($data['mgzn_url']);
+                    ?>">
+                  </a>
                   <!-- ↓マガジンイメージ -->
                   <div class="Backnumber_image">
                     <img src="./asset/img/<?php echo h($data['mgzn_img']); ?>.jpg" alt="">
@@ -305,31 +302,30 @@
   <!-- ↑↑BACK NUMBER -->
 
   <!-- ↓↓Topへ戻るボタン -->
-  <div id="Btn">
-    <a class="Btn" href="#top">
-      <img src="./asset/img/btn/top.png" class="Btn_top" width="40">
-    </a>
-  </div>
+  <?php
+    require_once __DIR__ . '/_parts/btn_top.html';
+  ?>
   <!-- ↑↑Topへ戻るボタン -->
 
   <!-- ↓↓footer -->
   <?php
-  require_once(__DIR__ . '/_parts/footer.php');
+    require_once __DIR__ . '/_parts/footer.php';
   ?>
   <!-- ↑↑footer -->
-
 
   <!-- ↓jQuery -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <!-- ↓slickのJavaScript -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <!-- ↓script src="index.js"></script> -->
+  <!-- ↓scriptのJavaScript  -->
+  <script src="asset/js/btn_top.js"></script>
+  <script src="asset/js/bar_left.js"></script>
   <!-- rateyoのJavaScript -->
   <script src="asset/js/jquery.rateyo.min.js"></script>
-  <!-- <script src="js/rateyo.js"></script> -->
+
 
   <script>
-    // rateYo
+    // ↓ rateYo
     $('.star').rateYo({
       precision: 1,
       readOnly: true,
@@ -338,20 +334,7 @@
       ratedFill: "#F39C12"
     });
 
-    // SNSボタン(左サイド)
-    $(function() {
-      var pagetop = $('.Leftside_sns');
-      // pagetop.hide();
-      $(window).scroll(function() {
-        if ($(this).scrollTop() >= 1600) {
-          pagetop.hide();
-        } else {
-          pagetop.show();
-        }
-      });
-    });
-
-    // slick
+    // ↓ slick
     $(function() {
       $('.Ranking_slider').slick({
         autoplay: true, // 自動再生ON OFF
@@ -378,25 +361,6 @@
         adaptiveHeight: false, //スライド高さの自動調整
         prevArrow: '<img src="./asset/img/btn/left.png" class="slide-arrow prev-arrow">',
         nextArrow: '<img src="./asset/img/btn/right.png" class="slide-arrow next-arrow">'
-      });
-    });
-
-    // Topへ戻るボタン
-    $(function() {
-      var pagetop = $('#Btn');
-      pagetop.hide();
-      $(window).scroll(function() {
-        if ($(this).scrollTop() > 1970) {
-          pagetop.fadeIn(300);
-        } else {
-          pagetop.fadeOut();
-        }
-      });
-      pagetop.click(function() {
-        $('body, html').animate({
-          scrollTop: 0
-        }, 50);
-        return false;
       });
     });
 

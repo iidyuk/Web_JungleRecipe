@@ -1,8 +1,8 @@
 <?php
   session_start();
-  $debug = true;
+  $debug = false;
   // require_once dirname(__FILE__) . '/functions.php';
-  require_once __DIR__ . '/functions.php';
+  require_once __DIR__ . '/_function/functions.php';
   $dbobj = connectTarzan();
 
   // 変数値確認。

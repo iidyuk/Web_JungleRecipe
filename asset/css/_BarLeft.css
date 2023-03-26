@@ -1,0 +1,18 @@
+/* SNSボタン(左サイド) */
+.Leftside_sns {
+  position: fixed;
+  top: 530px;
+}
+
+.Leftside_sns img {
+  display: block;
+  width: 35px;
+  margin: 5px 0 0 10px;
+  transition: 0.2s;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.Leftside_sns img:hover{
+  opacity: 0.2;
+}

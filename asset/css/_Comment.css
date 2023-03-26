@@ -12,7 +12,7 @@
   font-weight: bold;
   padding-left: 5px;
   border-left: 3px solid #000;
-  margin-top: 350px;
+
 }
 
 .CommentList_inner {
@@ -96,7 +96,7 @@
 .CommentList_link {
   display: inline-block;
   width: 100%;
-  background: #000000;
+  background: #867e6d;
   color: #fff;
   font-size: 25px;
   text-align: center;
@@ -179,7 +179,7 @@
 }
 
 .CommentInput_btn {
-  background: #000;
+  background: #867e6d;
   color: #fff;
   cursor: pointer;
   padding: 12px 36px;

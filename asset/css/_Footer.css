@@ -145,3 +145,8 @@ text-align: center;
 .Mgzn_box2 img{
  width: 150px;
 }
+
+.Footer_box2{
+  max-width: 1280px;
+  margin: auto;
+}

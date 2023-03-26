@@ -52,6 +52,11 @@
   display: none;
 }
 
+.detail_main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .detail_top {
   /* border: solid 2px #000; */
   height: 800px;
@@ -59,6 +64,7 @@
 
 .detail_top_box {
   height: 180px;
+  border-radius: 3px 3px 0 0;
   background-color: #867e6d;;
   position: relative;
 }
@@ -100,6 +106,7 @@
 
 .detail_bottom_box {
   height: 185px;
+  border-radius: 0 0 3px 3px;
   background-color: #f6f35e;;
   position: relative;
 }
@@ -147,7 +154,7 @@
   display: flex;
   align-items: center;
   font-size: 30px;
-  border-left: solid 5px #000;
+  border-left: solid 5px #867e6d;
   padding-left: 15px;
 }
 

@@ -1,6 +1,6 @@
 <?php
 $debug = true;
-require_once dirname(__FILE__) . '/functions.php';
+require_once dirname(__FILE__) . '../../_function/functions.php';
 
 $dbobj = connectTarzan();
 $id    = isset($_SESSION['id'])    ? $_SESSION['id']    : NULL;
@@ -48,7 +48,9 @@ if ($id) {
 
     <?php if ($count > 3) : ?>
       <div class="CommentList_btn">
-        <a href="#CommentList" class="CommentList_link">VIEW MORE<img class="CommentList_linkArrow" src="img/arrow1.png"></a>
+        <a href="#CommentList" class="CommentList_link">VIEW MORE
+          <img class="CommentList_linkArrow" src="./asset/img/btn/arrow1.png">
+        </a>
       </div>
     <?php endif; ?>
 

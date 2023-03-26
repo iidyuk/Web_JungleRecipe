@@ -3,7 +3,7 @@
   session_regenerate_id(TRUE);
 
   $debug = false;
-  require_once dirname(__FILE__) . '/functions.php';
+  require_once dirname(__FILE__) . '/_function/functions.php';
 
   $id    = isset($_GET['id'])    ? $_GET['id']    : NULL;
   $sessid    = isset($_SESSION['id'])    ? $_SESSION['id']    : NULL;
@@ -119,8 +119,9 @@
   <?php endif; ?>
 
   <div class="Wrapper">
-    <?php require_once(__DIR__ . '/_parts/header.html');?>
-    
+    <?php
+      require_once(__DIR__ . '/_parts/header.html');
+    ?>
 
     <nav class="breadcrumbs">
       <ol>
@@ -138,28 +139,11 @@
     </nav>
 
     <main class="detail_main">
+
       <!-- SNSボタン(左サイド) -->
-      <div class="Leftside_sns">
-        <a class="Leftside_snslink" href="https://twitter.com/tarzan_mag" target="_blank">
-          <img src="img/sns_icon/twitter.png" alt="Twitter" width="40">
-        </a>
-
-        <a class="Leftside_snslink" href="https://www.instagram.com/tarzanweb/" target="_blank">
-          <img src="img/sns_icon/instagram.png" alt="instagram" width="40">
-        </a>
-
-        <a class="Leftside_snslink" href="https://www.facebook.com/Tarzanmag/" target="_blank">
-          <img src="img/sns_icon/facebook.png" alt="facebook" width="40">
-        </a>
-
-        <a class="Leftside_snslink" href="https://page.line.me/oa-tarzan?openQrModal=true" target="_blank">
-          <img src="img/sns_icon/line.png" alt="line" width="40">
-        </a>
-
-        <a class="Leftside_snslink" href="https://www.youtube.com/channel/UCSIikpN5XEYBvRI6_Onti1w" target="_blank">
-          <img src="img/sns_icon/youtube.png" alt="youtube" width="40">
-        </a>
-      </div>
+      <?php
+      require_once __DIR__ . '/_parts/bar_left.html';
+      ?>
 
       <!-- <div class="detail_content"> -->
       <div class="main_bodyLeft">
@@ -169,34 +153,34 @@
             ?>
             <?php if ($bl) : ?>
 
-              <?php //echo '	&#x26a0;レシピが存在しません';
-              ?>
-              <?php //else :
-              ?>
-              <div class="detail_top">
-                <div class="detail_top_box">
-                  <?php while ($stData3 = mysqli_fetch_assoc($stSet3)) : ?>
-                    <div class="detail_tag"><?php echo h($stData3['tag_name']); ?></div>
-                  <?php endwhile; ?>
+            <?php //echo '	&#x26a0;レシピが存在しません';
+            ?>
+            <?php //else :
+            ?>
+            <div class="detail_top">
+              <div class="detail_top_box">
+                <?php while ($stData3 = mysqli_fetch_assoc($stSet3)) : ?>
+                <div class="detail_tag"><?php echo h($stData3['tag_name']); ?></div>
+                <?php endwhile; ?>
 
-                  <div class="detail_date">投稿日：<?php echo h($stData['recipe_date']); ?></div>
-                  <div class="detail_title"><?php echo h($stData['recipe_title']); ?></div>
-                </div>
-                <div class="detail_middle_box">
-                  <img class="detail_img" src="./asset/img/<?php echo h($stData['recipe_img']); ?>.jpg" alt="<?php echo h($stData['recipe_title']); ?>">
-                </div>
-                <div class="detail_bottom_box">
-
-                  <div class="detail_star">
-                    <div class="CommentList_starBox">
-                      <div class="star" data-rateyo-rating="<?php echo h($ranking['avg']); ?>"></div>
-                      <div class="star_num"><?php echo number_format($ranking['avg'], 1); ?></div>
-                    </div>
-                  </div>
-
-                  <div class="detail_description"><?php echo h($stData['recipe_description']); ?></div>
-                </div>
+                <div class="detail_date">投稿日：<?php echo h($stData['recipe_date']); ?></div>
+                <div class="detail_title"><?php echo h($stData['recipe_title']); ?></div>
               </div>
+              <div class="detail_middle_box">
+                <img class="detail_img" src="./asset/img/<?php echo h($stData['recipe_img']); ?>.jpg" alt="<?php echo h($stData['recipe_title']); ?>">
+              </div>
+              <div class="detail_bottom_box">
+
+                <div class="detail_star">
+                  <div class="CommentList_starBox">
+                    <div class="star" data-rateyo-rating="<?php echo h($ranking['avg']); ?>"></div>
+                    <div class="star_num"><?php echo number_format($ranking['avg'], 1); ?></div>
+                  </div>
+                </div>
+
+                <div class="detail_description"><?php echo h($stData['recipe_description']); ?></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -216,10 +200,10 @@
               </div>
               <div class="ingredients_text">
                 <?php while ($stData4 = mysqli_fetch_assoc($stSet4)) : ?>
-                  <div class="ingredients_box">
-                    <div class="ingredients_list">・<?php echo h($stData4['ing_ingredient']); ?></div>
-                    <div class="ingredients_list_vol"><?php echo h($stData4['ing_vol']); ?></div>
-                  </div>
+                <div class="ingredients_box">
+                  <div class="ingredients_list">・<?php echo h($stData4['ing_ingredient']); ?></div>
+                  <div class="ingredients_list_vol"><?php echo h($stData4['ing_vol']); ?></div>
+                </div>
                 <?php endwhile; ?>
               </div>
             </div>
@@ -233,25 +217,23 @@
               </div>
               <div class="howToCook_text">
                 <?php while ($stData5 = mysqli_fetch_assoc($stSet5)) : ?>
-                  <div class="howToCook_box">
-                    <div class="howToCook_no"><?php echo h($stData5['step_no']) . '.' ?></div>
-                    <div class="howToCook_way"><?php echo h($stData5['step_detail']); ?></div>
-                  </div>
+                <div class="howToCook_box">
+                  <div class="howToCook_no"><?php echo h($stData5['step_no']) . '.' ?></div>
+                  <div class="howToCook_way"><?php echo h($stData5['step_detail']); ?></div>
+                </div>
                 <?php endwhile; ?>
               </div>
             </div>
           <?php endif; ?>
 
 
-          <!-- </div> -->
-          </div>
           <?php if ($id) : ?>
-            <div class="detail_commentBox">
-              <?php require 'comment_list.php'; ?>
-              <?php require 'comment.php'; ?>
-            </div>
+          <div class="detail_commentBox">
+            <?php require './_comment/comment_list.php'; ?>
+            <?php require './_comment/comment.php'; ?>
+          </div>
           <?php else : ?>
-            <p class="detail_error">レシピが存在しません</p>
+          <p class="detail_error">レシピが存在しません</p>
           <?php endif; ?>
         </div>
       </div>
@@ -265,19 +247,16 @@
           ?>
         </div>
        */ ?>
-      <!-- </div> -->
 
       <!-- Topへ戻るボタン -->
-      <div id="Btn">
-        <a class="Btn" href="#top">
-          <img src="img/btn/top.png" class="Btn_top" width="40">
-        </a>
-      </div>
-
+      <?php 
+        require_once __DIR__ . '/_parts/btn_top.html';
+      ?>
     </main>
-    <?php require_once(__DIR__ . '/_parts/footer.php');?>
-  </div>
 
+    <?php
+      require_once __DIR__ . '/_parts/footer.php';
+    ?>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -285,6 +264,8 @@
   <script src="./asset/js/googlefonts.js"></script>
   <script src="./asset/js/index.js"></script>
   <script src="./asset/js/comment.js"></script>
+  <script src="./asset/js/bar_left.js"></script>
+  <script src="./asset/js/btn_top.js"></script>
   <script src="./asset/js/jquery.rateyo.min.js"></script>
   <script src="./asset/js/rateyo.js"></script>
   <script>
@@ -301,42 +282,7 @@
       $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
     });
   </script>
-  <script>
-    // SNSボタン(左サイド)
-    $(function() {
-      var pagetop = $('.Leftside_sns');
-      // pagetop.hide();
-      $(window).scroll(function() {
-        if ($(this).scrollTop() >= 1600) {
-          pagetop.fadeOut();
-        } else {
-          pagetop.fadeIn();
-        }
-      });
-    });
-    // Topへ戻るボタン
-    $(function() {
-      var pagetop = $('#Btn');
-      pagetop.hide();
-      $(window).scroll(function() {
-        if ($(this).scrollTop() > 700) {
-          pagetop.fadeIn(300);
-        } else {
-          pagetop.fadeOut();
-        }
-      });
-      pagetop.click(function() {
-        $('body, html').animate({
-          scrollTop: 0
-        }, 50);
-        return false;
-      });
-    });
 
-    $(window).scroll(function() {
-      $('#scroll-amount').text($(this).scrollTop() + 'px');
-    });
-  </script>
 
 </body>
 

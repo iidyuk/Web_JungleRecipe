@@ -1,21 +1,19 @@
 .Result_body {
-    margin-right: 70px;
-    width: 1280px;
+    /* margin-right: 70px; */
+    /* width: 1280px; */
+		margin: 0 auto;
 }
 /* line_title */
 .line_title {
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-bottom: 40px;
-	padding-right: 20px;
+	margin: auto;
 	padding-bottom: 15px;
 	font-size: 1.5rem;
 	line-height: 1.5;
 	font-weight: 900;
-	text-align: left;
-	border-bottom: 4px solid rgba(0, 0, 0, 0.04);;
+	border-bottom: 4px solid rgba(0, 0, 0, 0.04);
 	width: 830px;
 }
 .line_title::before {
@@ -39,9 +37,7 @@
 
 .articles_totals {
 	position: relative;
-	margin-top: 50px;
-	margin-bottom: 40px;
-  margin-right:50px;
+	margin: 50px auto 40px;
   justify-content:space-between;
   align-items:center;
   align-content:space-around;
@@ -257,7 +253,9 @@ width: 775px;
 }
 
 .main {
-  margin-left: 70px;
+  /* margin-left: 70px; */
+	margin: 0 auto;
+	max-width: 1280px;
 }
 
 /* ------------ページネーションのデザイン。ここを変えてください---------- */

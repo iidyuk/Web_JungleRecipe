@@ -11,4 +11,5 @@
 @import url(_Index.css);
 @import url(_Recommend.css);
 @import url(_Result.css);
-@import url(_Sidebar.css);
+/* @import url(_Sidebar.css); */
+@import url(_BarLeft.css);
