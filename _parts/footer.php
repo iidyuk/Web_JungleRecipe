@@ -20,48 +20,6 @@
 
     <div class="Footer_box">
 
-      <div class="Footer_sns">
-        <a class="sns_link" href="">
-          <img src="./asset/img/sns_icon/twitter.png" alt="Twitter" width="40">
-        </a>
-
-        <a class="sns_link" href="">
-          <img src="./asset/img/sns_icon/instagram.png" alt="instagram" width="40">
-        </a>
-
-        <a class="sns_link" href="">
-          <img src="./asset/img/sns_icon/facebook.png" alt="facebook" width="40">
-        </a>
-
-        <a class="sns_link" href="">
-          <img src="./asset/img/sns_icon/line.png" alt="line" width="40">
-        </a>
-
-        <a class="sns_link" href="">
-          <img src="./asset/img/sns_icon/youtube.png" alt="youtube" width="40">
-        </a>
-      </div>
-
-      <div class="Footer_logo">
-        <a class="Logo_link" href="index.php">
-          <img src="./asset/img/logo/logo.png" alt="Tarzan Jungle Recipe" width="500">
-        </a>
-      </div>
-
-      <nav class="NavPC">
-        <ul class="NavPC_listF">
-          <li class="NavPC_item">
-            <a href="result.php?Search=0" class="NavPC_link">Recipe</a>
-          </li>
-          <li class="NavPC_item">
-            <a href="" class="NavPC_link">Magazines</a>
-          </li>
-          <li class="NavPC_item">
-            <a href="" class="NavPC_link">About Tarzan</a>
-          </li>
-        </ul>
-      </nav>
-
       <div class="Footer_mgzn">
 
         <div class="mgznBox1">
@@ -115,6 +73,50 @@
           </div>
         </div>
       </div>
+
+      <div class="Footer_sns">
+        <a class="sns_link" href="">
+          <img src="./asset/img/sns_icon/twitter.png" alt="Twitter" width="40">
+        </a>
+
+        <a class="sns_link" href="">
+          <img src="./asset/img/sns_icon/instagram.png" alt="instagram" width="40">
+        </a>
+
+        <a class="sns_link" href="">
+          <img src="./asset/img/sns_icon/facebook.png" alt="facebook" width="40">
+        </a>
+
+        <a class="sns_link" href="">
+          <img src="./asset/img/sns_icon/line.png" alt="line" width="40">
+        </a>
+
+        <a class="sns_link" href="">
+          <img src="./asset/img/sns_icon/youtube.png" alt="youtube" width="40">
+        </a>
+      </div>
+
+      <div class="Footer_logo">
+        <a class="Logo_link" href="index.php">
+          <img src="./asset/img/logo/logo.png" alt="Tarzan Jungle Recipe" width="500">
+        </a>
+      </div>
+
+      <nav class="NavPC">
+        <ul class="NavPC_listF">
+          <li class="NavPC_item">
+            <a href="result.php?Search=0" class="NavPC_link">Recipe</a>
+          </li>
+          <li class="NavPC_item">
+            <a href="" class="NavPC_link">Magazines</a>
+          </li>
+          <li class="NavPC_item">
+            <a href="" class="NavPC_link">About Tarzan</a>
+          </li>
+        </ul>
+      </nav>
+
+
     </div>
   </div>
 

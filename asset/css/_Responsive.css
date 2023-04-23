@@ -1,0 +1,210 @@
+@media screen and (max-width: 1280px) {
+
+  .Header_box{
+    padding: 0;
+  }
+  .Header p{
+    padding-top: 110px;
+    padding-bottom: 20px;
+  }
+  .Header_box p{
+    padding-top: 104px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  .Header_box img{
+    width: 37vw;
+    min-width: 288px;
+  }
+  ul.NavPC_list{
+    font-size: 17px;
+  }
+
+  .Search{
+    height: 224px;
+  }
+  .Search_inner{
+    display: block;
+    text-align: center;
+    margin: 0px;
+    padding: 0;
+  }
+  .Search_title{
+    text-align: center;
+  }
+  .Search_titleBox{
+    padding: 32px 0px 0px;
+    font-size: clamp(28px, 8vw, 32px);
+  }
+  .Search_title h2{
+    display: block;
+    margin: 0px;
+  }
+  .Search_title p{
+    display: block;
+    margin: 0px;
+    font-size: 24px;
+  }
+  .Search_form{
+    display: inline-block;
+    margin: 24px 0 0;
+  }
+  .Search_formBox{
+    margin: 0;
+  }
+  .Search_formArea{
+    display: flex;
+    justify-content: center;
+  }
+  .Search_formSelect{
+    width: 32vw;
+    min-width: 240px;
+  }
+
+
+
+
+
+  .Ranking_titleBox{
+    text-align: center;
+  }
+  .Ranking_titleBox h1{
+    display: block;
+    margin: auto;
+    font-size: 30px;
+  }
+  .Ranking_titleBox p{
+    font-size: 24px;
+  }
+  .Ranking_sliderCaption{
+    width: 28vw;
+    max-width: 345px;
+    min-height: auto;
+  }
+  .Ranking_sliderTitle{
+    width: 22vw;
+    font-size: clamp(14px, 2vw, 18px);
+  }
+  .Ranking_sliderImage{
+    width: 29vw;
+    height: auto;
+  }
+  .Ranking_container .slick-slide img{
+    /* width: 29vw; */
+    width: 100%;
+    margin: 0 auto;
+    /* height: auto; */
+  }
+  .Ranking_sliderRecipeTag p{
+    height: 24px;
+    font-size: clamp(11px, 1.75vw, 15px);
+    margin: 2px 0 3px;
+  }
+  .Ranking_sliderRank{
+    background-size: 40px;
+  }
+  .Ranking_sliderRank_CharOnes{
+    margin: 4px 0 0 14px;
+    font-size: 22px;
+  }
+  .Ranking_container .next-arrow,
+  .Ranking_container .prev-arrow{
+    top: -48px;
+    width: 36px;
+  }
+
+  .New_inner{
+    width: auto;
+    padding: 50px 24px;
+  }
+  .New_container{
+    margin: 0 auto 0;
+  }
+  .New_slider{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .New_sliderRecipeTag p{
+    /* max-width: 10vw; */
+    height: 24px;
+    font-size: clamp(11px, 1.75vw, 15px);
+    margin: 2px 0 3px;
+  }
+  .New_sliderTitle{
+    display: none;
+  }
+  .New_sliderImage{
+    text-align: center;
+  }
+  .New_sliderImage img{
+    width: 176px;
+    max-height: 104px;
+    object-fit: contain;
+  }
+
+  .Backnumber{
+    height: auto;
+    padding: 0 0 10px;
+  }
+  .Backnumber_titleBox h2{
+    padding: 48px 0 0 0;
+  }
+  .Backnumber_titleBox p{
+    margin: 20px 0 20px 0;
+  }
+  .Backnumber_viewAll{
+    margin: auto;
+    text-align: right;
+  }
+  .Backnumber_contentsBox{
+    min-width: 0;
+  }
+  .Backnumber_contentsBoxInner{
+    width: 90vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 24px auto;
+  }
+  .Backnumber_itemBox{
+    margin: 8px 8px;
+  }
+
+  .Footer_body1{
+    height: auto;
+  }
+  .Footer_box{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .Footer_mgzn{
+    margin: 24px auto 8px;
+    max-width: 500px;
+    width: 95vw;
+  }
+  .Footer_sns{
+    margin: 8px auto;
+  }
+  .Footer_logo img{
+    width: 90vw;
+    max-width: 480px;
+  }
+
+
+}
+
+@media screen and (max-width: 640px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+  .Leftside_sns{
+    display: none;
+  }
+
+  .Ranking_container{
+    margin: 64px 8px 0;
+  }
+
+  .New{
+    margin: 0 8px 0;
+  }
+}

@@ -181,13 +181,15 @@
               $recipeTagSet = mysqli_query($dbobj, $sql_recipeTag) or die(mysqli_error($dbobj));
               ?>
               <!-- ↓レシピタグ -->
-              <?php while ($data_recipeTag = mysqli_fetch_assoc($recipeTagSet)) : ?>
-                <?php if ($data['recipe_id'] == $data_recipeTag['rtag_recipeid']) : ?>
-                  <div class="Ranking_sliderRecipeTag">
-                    <?php echo h($data_recipeTag['tag_name']); ?>
-                  </div>
-                <?php endif; ?>
-              <?php endwhile; ?>
+              <div class="Ranking_sliderRecipeTag">
+                <?php while ($data_recipeTag = mysqli_fetch_assoc($recipeTagSet)) : ?>
+                  <?php if ($data['recipe_id'] == $data_recipeTag['rtag_recipeid']) : ?>
+                    <p>
+                      <?php echo h($data_recipeTag['tag_name']); ?>
+                    </p>
+                  <?php endif; ?>
+                <?php endwhile; ?>
+              </div>
             </div> <!-- Ranking_sliderSlick終了 -->
           <?php endwhile; ?>
         </div> <!-- Ranking_slider終了 -->
@@ -225,13 +227,15 @@
               $sql_recipeTag = 'SELECT * FROM recipetag_tbl LEFT JOIN tag_tbl ON recipetag_tbl.rtag_tagid=tag_tbl.tag_id';
               $recipeTagSet = mysqli_query($dbobj, $sql_recipeTag) or die(mysqli_error($dbobj));
               ?>
-              <?php while ($data_recipeTag = mysqli_fetch_assoc($recipeTagSet)) : ?>
-                <?php if ($data['recipe_id'] == $data_recipeTag['rtag_recipeid']) : ?>
-                  <div class="New_sliderRecipeTag">
-                    <?php echo h($data_recipeTag['tag_name']); ?>
-                  </div>
-                <?php endif; ?>
-              <?php endwhile; ?>
+              <div class="New_sliderRecipeTag">
+                <?php while ($data_recipeTag = mysqli_fetch_assoc($recipeTagSet)) : ?>
+                  <?php if ($data['recipe_id'] == $data_recipeTag['rtag_recipeid']) : ?>
+                    <p>
+                      <?php echo h($data_recipeTag['tag_name']); ?>
+                    </p>
+                  <?php endif; ?>
+                <?php endwhile; ?>
+              </div>
             </div> <!-- New_sliderSlick終了 -->
           <?php endwhile; ?>
         </div>
@@ -329,15 +333,17 @@
     $('.star').rateYo({
       precision: 1,
       readOnly: true,
-      starWidth: "25px",
+      starWidth: "20px",
       normalFill: "#A0A0A0",
       ratedFill: "#F39C12"
     });
 
     // ↓ slick
     $(function() {
-      $('.Ranking_slider').slick({
-        autoplay: true, // 自動再生ON OFF
+      let slidenum = 0;
+
+      let Ranking_sliderOptions = {
+        autoplay: false, // 自動再生ON OFF
         dots: false, // ドットインジケーターON OFF
         centerMode: false, // 両サイドに前後のスライド表示
         centerPadding: '0px', // 左右のスライドのpadding
@@ -347,21 +353,60 @@
         cssEase: 'linear', //開始から終了まで一定に変化する
         prevArrow: '<img src="./asset/img/btn/left.png" class="slide-arrow prev-arrow">',
         nextArrow: '<img src="./asset/img/btn/right.png" class="slide-arrow next-arrow">'
-      });
-    });
+      };
 
-    $(function() {
-      $('.New_slider').slick({
-        autoplay: true, // 自動再生ON
-        dots: false, // ドットインジケーターON
-        centerMode: false, // 両サイドに前後のスライド表示
-        centerPadding: '5px', // 左右のスライドのpadding
-        slidesToShow: 5, // 一度に表示するスライド数
-        arrows: true, //スライド移動の矢印
-        adaptiveHeight: false, //スライド高さの自動調整
+      let New_sliderOptions = {
+        autoplay: false,
+        dots: false,
+        centerMode: false,
+        centerPadding: '5px',
+        slidesToShow: 5,
+        arrows: true,
+        adaptiveHeight: false,
         prevArrow: '<img src="./asset/img/btn/left.png" class="slide-arrow prev-arrow">',
         nextArrow: '<img src="./asset/img/btn/right.png" class="slide-arrow next-arrow">'
+      };
+      
+      // load時の可変設定
+      $(window).on('load', function() {
+        if ($(window).width() <= 1280) {
+          $('.New_slider').slick('unslick');
+          Ranking_sliderOptions.slidesToShow = 3;
+        } else {
+          $('.New_slider').slick(New_sliderOptions);
+          Ranking_sliderOptions.slidesToShow = 5;
+        }
       });
+
+      // resize時の可変設定
+      function setSlideNum() {
+        if (window.matchMedia('(max-width: 640px)').matches) {
+          Ranking_sliderOptions.slidesToShow = 2;
+          Ranking_sliderOptions.slidesToScroll = 2;
+        } else if (window.matchMedia('(max-width: 1280px)').matches) {
+          Ranking_sliderOptions.slidesToShow = 3;
+          Ranking_sliderOptions.slidesToScroll = 3;
+        } else {
+          Ranking_sliderOptions.slidesToShow = 5;
+          Ranking_sliderOptions.slidesToScroll = 1;
+        }
+      }
+
+      setSlideNum();
+      $(window).resize(function() {
+        setSlideNum();
+        $('.Ranking_slider').slick('unslick');
+        $('.Ranking_slider').slick(Ranking_sliderOptions);
+
+        if (window.matchMedia('(max-width: 1280px)').matches) {
+          $('.New_slider').slick('unslick');
+        } else {
+          $('.New_slider').slick(New_sliderOptions);
+        }
+      });
+
+      $('.Ranking_slider').slick(Ranking_sliderOptions);
+      $('.New_slider').slick(New_sliderOptions);
     });
 
     // debug用
