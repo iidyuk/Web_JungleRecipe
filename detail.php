@@ -123,26 +123,26 @@
       require_once(__DIR__ . '/_parts/header.html');
     ?>
 
-    <nav class="breadcrumbs">
-      <ol>
-        <li><a href="index.php">トップページ</a></li>
-        <li><a href="result.php?Search=<?php echo $query; ?>">検索結果</a></li>
-        <li>
-          <?php if ($id) : ?>
-            <?php echo h($stData['recipe_title']); ?>
-          <?php endif; ?>
-
-          <!-- <?php //echo h($stData['recipe_title']);
-                ?> -->
-        </li>
-      </ol>
-    </nav>
-
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="index.php">トップページ</a></li>
+          <li><a href="result.php?Search=<?php echo $query; ?>">検索結果</a></li>
+          <li>
+            <?php if ($id) : ?>
+              <?php echo h($stData['recipe_title']); ?>
+            <?php endif; ?>
+  
+            <!-- <?php //echo h($stData['recipe_title']);
+                  ?> -->
+          </li>
+        </ol>
+      </nav>
+      
     <main class="detail_main">
 
       <!-- SNSボタン(左サイド) -->
       <?php
-      require_once __DIR__ . '/_parts/bar_left.html';
+      // require_once __DIR__ . '/_parts/bar_left.html';
       ?>
 
       <!-- <div class="detail_content"> -->

@@ -10,8 +10,8 @@
 .CommentList_title {
   font-size: 30px;
   font-weight: bold;
-  padding-left: 5px;
-  border-left: 3px solid #000;
+  padding-left: 16px;
+  border-left: 5px solid #867e6d;
 
 }
 
@@ -22,8 +22,9 @@
 .CommentList_box {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 16px;
-  width: 300px;
+  max-width: 300px;
   border-bottom: 1px solid #707070;
 }
 
@@ -73,6 +74,7 @@
 
 .CommentList_comment {
   border: 1px solid #707070;
+  border-radius: 2px;
   padding: 10px 30px;
   margin-top: 14px;
   margin-left: 10px;
@@ -81,6 +83,7 @@
 .CommentList_starBox {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .star_num {
@@ -95,6 +98,7 @@
 
 .CommentList_link {
   display: inline-block;
+  border-radius: 4px;
   width: 100%;
   background: #867e6d;
   color: #fff;
@@ -118,7 +122,8 @@
 }
 
 .CommentInput_inner {
-  border: 2px solid #000;
+  border: 2px solid #707070;
+  border-radius: 4px;
   padding: 16px 30px;
 }
 
@@ -138,16 +143,19 @@
 .CommentInput_input,
 .CommentInput_textarea {
   border: 1px solid #000;
+  border-radius: 2px;
   padding: 5px;
   margin-top: 5px;
+  width: 65vw;
+  max-width: 500px;
 }
 
 .CommentInput_textarea {
   resize: auto;
   max-width: 500px;
   max-height: 500px;
-  width:500px;
-  height:300px
+  height:300px;
+  width: 65vw;
 }
 
 .CommentInput_starBox {
@@ -180,6 +188,7 @@
 
 .CommentInput_btn {
   background: #867e6d;
+  border-radius: 2px;
   color: #fff;
   cursor: pointer;
   padding: 12px 36px;
@@ -193,10 +202,12 @@
   padding: 0 20px;
   margin-top: 80px;
   margin-bottom: 264px;
+  color: #3d3d3d;
 }
 
 .CommentConfirm_inner {
   border: 1px solid #000;
+  border-radius: 2px;
   padding: 22px;
 }
 
@@ -241,7 +252,8 @@
 
 .CommentConfirm_btn {
   display: inline-block;
-  background: #000;
+  background: #867e6d;
+  border-radius: 2px;
   color: #fff;
   padding: 10px 20px;
   margin-right: 10px;

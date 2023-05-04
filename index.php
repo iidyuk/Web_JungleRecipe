@@ -190,7 +190,7 @@
                   <?php endif; ?>
                 <?php endwhile; ?>
               </div>
-            </div> <!-- Ranking_sliderSlick終了 -->
+            </div>
           <?php endwhile; ?>
         </div> <!-- Ranking_slider終了 -->
       </div> <!-- Ranking_container終了 -->
@@ -337,24 +337,60 @@
       normalFill: "#A0A0A0",
       ratedFill: "#F39C12"
     });
+    // ↑ rateYo
 
-    // ↓ slick
+    // ↓ slick 'Ranking_slider'
     $(function() {
-      let slidenum = 0;
-
-      let Ranking_sliderOptions = {
+      $('.Ranking_slider').slick({
         autoplay: false, // 自動再生ON OFF
+        infinite: true,
         dots: false, // ドットインジケーターON OFF
         centerMode: false, // 両サイドに前後のスライド表示
         centerPadding: '0px', // 左右のスライドのpadding
-        slidesToShow: 5, // 一度に表示するスライド数
-        arrows: true, //スライド移動の矢印
+        slidesToShow: 4, // 一度に表示するスライド数
         autoplaySpeed: 4500, //隣あう画像のスライドするまでの間隔時間
         cssEase: 'linear', //開始から終了まで一定に変化する
+        arrows: true, //スライド移動の矢印
         prevArrow: '<img src="./asset/img/btn/left.png" class="slide-arrow prev-arrow">',
-        nextArrow: '<img src="./asset/img/btn/right.png" class="slide-arrow next-arrow">'
-      };
+        nextArrow: '<img src="./asset/img/btn/right.png" class="slide-arrow next-arrow">',
+        responsive: [
+          {
+            breakpoint: 1280,
+            settings: {
+              slidesToShow: 3,
+              infinite: true,
+            }
+          },
+          {
+            breakpoint: 640,
+            settings: {
+              slidesToShow: 2
+            }
+          }
+        ]
+      })
 
+      $('.Ranking_slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        if(currentSlide === 0){
+          $('[data-slick-index="-1"]', this).addClass('slide-trans');
+        }
+        if(nextSlide === 0){
+          $('[data-slick-index="10"]', this).addClass('slide-trans');
+        }
+      });
+
+      $('.Ranking_slider').on('afterChange', function(event, slick, currentSlide) {
+        $('[data-slick-index="-1"]', this).removeClass('slide-trans');
+        $('[data-slick-index="0"]', this).removeClass('slide-trans');
+        $('[data-slick-index="8"]', this).removeClass('slide-trans');
+        $('[data-slick-index="9"]', this).removeClass('slide-trans');
+        $('[data-slick-index="10"]', this).removeClass('slide-trans');
+      });
+    });
+    // ↑ slick 'Ranking_slider'
+
+    // ↓ slick 'New_slider'
+    $(function() {
       let New_sliderOptions = {
         autoplay: false,
         dots: false,
@@ -366,38 +402,18 @@
         prevArrow: '<img src="./asset/img/btn/left.png" class="slide-arrow prev-arrow">',
         nextArrow: '<img src="./asset/img/btn/right.png" class="slide-arrow next-arrow">'
       };
-      
+
       // load時の可変設定
       $(window).on('load', function() {
         if ($(window).width() <= 1280) {
           $('.New_slider').slick('unslick');
-          Ranking_sliderOptions.slidesToShow = 3;
         } else {
           $('.New_slider').slick(New_sliderOptions);
-          Ranking_sliderOptions.slidesToShow = 5;
         }
       });
 
       // resize時の可変設定
-      function setSlideNum() {
-        if (window.matchMedia('(max-width: 640px)').matches) {
-          Ranking_sliderOptions.slidesToShow = 2;
-          Ranking_sliderOptions.slidesToScroll = 2;
-        } else if (window.matchMedia('(max-width: 1280px)').matches) {
-          Ranking_sliderOptions.slidesToShow = 3;
-          Ranking_sliderOptions.slidesToScroll = 3;
-        } else {
-          Ranking_sliderOptions.slidesToShow = 5;
-          Ranking_sliderOptions.slidesToScroll = 1;
-        }
-      }
-
-      setSlideNum();
       $(window).resize(function() {
-        setSlideNum();
-        $('.Ranking_slider').slick('unslick');
-        $('.Ranking_slider').slick(Ranking_sliderOptions);
-
         if (window.matchMedia('(max-width: 1280px)').matches) {
           $('.New_slider').slick('unslick');
         } else {
@@ -405,9 +421,9 @@
         }
       });
 
-      $('.Ranking_slider').slick(Ranking_sliderOptions);
       $('.New_slider').slick(New_sliderOptions);
     });
+    // ↑ slick 'New_slider'
 
     // debug用
     $(window).scroll(function() {

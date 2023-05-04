@@ -205,38 +205,39 @@
         </h1>
         <!-- <p class="page"><span class="ff_en">   </span>ページ</p> -->
         <!-- memo:↓レコード件数(取得件数)表示 -->
-          <?php echo $bl ?>   
+          <!-- <?php echo $bl ?>    -->
       </header>
     </div>
     <!-- 検索結果表示 -->
-    <div class="articles_totals">
-
-      <p class="Result_p total ff_en" name="con">
-        <span>
-          <?php
-          // memo:↓件数表示
-          echo $rescount;
-          ?>
-        </span> recipe
-        <div class="searchArea">
-          <!-- <form action="result.php?Search=<?php echo $query; ?>" method="GET"> -->
-          <form action="result.php" method="GET">
-            <!-- memo:↓$queryは getで受け取った値12行目 -->
-            <input type="hidden" name="Search" value="<?php echo $query; ?>" />
-            <select class="Result_select1" name="select1">
-              <option disabled selected value="">並び替え</option>
-              <option value="0">指定なし</option>
-              <option value="1">投稿日が新しい順</option>
-              <option value="2">投稿日が古い順</option>
-              <option value="3">カロリーが高い順</option>
-              <option value="4">カロリーが低い順</option>
-              <!-- <option value="5">評価点(降順)</option>
-              <option value="6">評価点(昇順)</option> -->
-            </select>
-            <input type="image" src="./asset/img/search/black.png" width="30" height="30" alt="検索" value="検索する">
-          </form>
-        </div>
-      </p>
+    <div class="articles_totals_wrapper">
+      <div class="articles_totals">
+        <p class="Result_p total ff_en" name="con">
+          <span>
+            <?php
+            // memo:↓件数表示
+            echo $rescount;
+            ?>
+          </span> recipe
+          <div class="searchArea">
+            <!-- <form action="result.php?Search=<?php echo $query; ?>" method="GET"> -->
+            <form action="result.php" method="GET">
+              <!-- memo:↓$queryは getで受け取った値12行目 -->
+              <input type="hidden" name="Search" value="<?php echo $query; ?>" />
+              <select class="Result_select1" name="select1">
+                <option disabled selected value="">並び替え</option>
+                <option value="0">指定なし</option>
+                <option value="1">投稿日が新しい順</option>
+                <option value="2">投稿日が古い順</option>
+                <option value="3">カロリーが高い順</option>
+                <option value="4">カロリーが低い順</option>
+                <!-- <option value="5">評価点(降順)</option>
+                <option value="6">評価点(昇順)</option> -->
+              </select>
+              <input type="image" src="./asset/img/search/black.png" width="30" height="30" alt="検索" value="検索する">
+            </form>
+          </div>
+        </p>
+      </div>
     </div>
 
     <div class="articles_list ">

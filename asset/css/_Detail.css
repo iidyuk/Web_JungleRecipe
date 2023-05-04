@@ -21,7 +21,7 @@
 }
 
 .main_bodyLeft{
-  width: 770px;
+  max-width: 770px;
   margin: 0 auto;
 }
 
@@ -32,14 +32,16 @@
 }
 
 .breadcrumbs {
-  height: 48px;
-  line-height: 48px;
-  width: 770px;
-  margin: auto;
+  /* height: 48px;
+  line-height: 48px; */
+  /* width: 770px; */
+  margin: 4px auto 0;
 }
 
 .breadcrumbs li {
-  float: left;
+  /* float: left; */
+  display: inline-block;
+  padding: 0 0 8px;
 }
 
 .breadcrumbs li::after{
@@ -55,32 +57,39 @@
 .detail_main{
   max-width: 1200px;
   margin: 0 auto;
+  color: #3d3d3d;
 }
 
 .detail_top {
   /* border: solid 2px #000; */
-  height: 800px;
+  /* height: 800px; */
 }
 
 .detail_top_box {
-  height: 180px;
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 770px;
+  /* min-height: 176px; */
   border-radius: 3px 3px 0 0;
   background-color: #867e6d;;
-  position: relative;
+  /* position: relative; */
 }
 
 .detail_tag {
+  display: inline-block;
+  border-radius: 2px;
   background-color: #fff;
   font-size: 20px;
   margin: 15px;
   margin-right: 0;
   padding:5px 15px;
-  float: left;
+  /* float: left; */
 }
 
 .detail_date {
+  display: inline-block;
   color: #fff;
-  float: right;
+  /* float: right; */
   font-size: 20px;
   margin: 20px 15px;
 }
@@ -88,15 +97,18 @@
 .detail_title {
   color: #fff;
   font-size: 36px;
-  position: absolute;
+  /* position: absolute; */
+  padding: 0 12px 24px;
+  margin: 16px 8px;
+}
+.detail_title::before{
   border-left: solid 7px #fff;
-  padding-left: 15px;
-  margin: 70px 0 0 15px ;
-
 }
 .detail_middle_box{
-  height: 432px;
-
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 770px;
+  height: auto;
 }
 .detail_img {
     width: 100%;
@@ -105,24 +117,34 @@
 }
 
 .detail_bottom_box {
-  height: 185px;
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 770px;
+  /* height: 185px; */
   border-radius: 0 0 3px 3px;
   background-color: #f6f35e;;
-  position: relative;
+  /* position: relative; */
 }
 
 .detail_star {
-  width: 415px;
-  height: 75px;
-  position: absolute;
-  margin: 10px 0 0 500px;
+  height: 64px;
+  margin: 0 24px 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
 .detail_description {
   font-size: 24px;
-  margin: 0 20px 20px;
-  padding-top: 65px;
+  padding: 0 12px 12px;
+  /* margin: 0 20px 20px; */
+  /* padding-top: 65px; */
+}
+
+.Box_body{
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 770px;
 }
 
 .calorie {
@@ -131,7 +153,7 @@
   align-items: flex-end;
   height: 105px;
   margin: 30px 0 90px;
-  border-bottom: solid 5px #000;
+  border-bottom: solid 5px silver;
 }
 
 .calorie_text {
@@ -142,6 +164,7 @@
 .calorie_amount {
   font-size: 50px;
   font-weight: bold;
+  color: #867e6d;
 }
 
 .ingredients,
@@ -203,4 +226,43 @@ display: flex;
 .detail_error {
   font-size: 24px;
   margin: 200px 0;
+}
+
+
+@media screen and (max-width: 640px) {
+  .detail_tag{
+    font-size: 16px;
+    margin: 10px;
+  }
+  .detail_date{
+    font-size: 14px;
+    margin: 8px;
+  }
+  .detail_title{
+    font-size: 30px;
+  }
+  .detail_description{
+    font-size: 20px;
+  }
+  .calorie{
+    flex-direction: column;
+    height: auto;
+  }
+  .calorie_text{
+    font-size: 22px;
+  }
+  .calorie_amount{
+    font-size: 37px;
+  }
+  .ingredients_title, .howToCook_title{
+    font-size: 24px;
+  }
+  .ingredients_title_sub, .howToCook_title_sub{
+    font-size: 20px;
+  }
+  .ingredients_text, .howToCook_text{
+    font-size: 20px;
+  }
+
+
 }

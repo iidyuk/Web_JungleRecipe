@@ -41,6 +41,10 @@ padding-bottom: 50px;
   gap: 50px;
 }
 
+.Footer_mgzn{
+  border-radius: 4px;
+}
+
 .Footer_sns {
   display: flex;
   width: 300px;

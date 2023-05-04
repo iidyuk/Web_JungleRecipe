@@ -63,9 +63,6 @@
   }
 
 
-
-
-
   .Ranking_titleBox{
     text-align: center;
   }
@@ -77,14 +74,26 @@
   .Ranking_titleBox p{
     font-size: 24px;
   }
+  .Ranking_container{
+    margin: 56px auto 8px 70px;
+  }
   .Ranking_sliderCaption{
     width: 28vw;
     max-width: 345px;
     min-height: auto;
   }
+  .Ranking_slider .slick-current .Ranking_sliderCaption{
+    max-width: 348px;
+    width: calc(29vw - 40px);
+    padding: 0px 4px 0 4px;
+    margin: 0 0 0 24px;
+  }
   .Ranking_sliderTitle{
     width: 22vw;
     font-size: clamp(14px, 2vw, 18px);
+  }
+  .Ranking_slider .slick-current .Ranking_sliderTitle{
+    margin-left: 8px;
   }
   .Ranking_sliderImage{
     width: 29vw;
@@ -95,6 +104,18 @@
     width: 100%;
     margin: 0 auto;
     /* height: auto; */
+    max-width: 100%;
+  }
+  .Ranking_slider .slick-current .Ranking_sliderInner{
+    margin-left: 4px;
+  }
+  .Ranking_slider .slick-current .Ranking_sliderInner img{
+    margin: 25px auto 0;
+  }
+  .Ranking_slider .slick-current .Ranking_sliderRecipeTag{
+    max-width: 348px;
+    width: calc(29vw - 45px);
+    margin: 0 0 0 32px;
   }
   .Ranking_sliderRecipeTag p{
     height: 24px;
@@ -107,6 +128,9 @@
   .Ranking_sliderRank_CharOnes{
     margin: 4px 0 0 14px;
     font-size: 22px;
+  }
+  .Ranking_sliderRank_Char10th{
+    margin: 7px 0 0 10px;
   }
   .Ranking_container .next-arrow,
   .Ranking_container .prev-arrow{
@@ -195,7 +219,6 @@
 }
 
 @media screen and (max-width: 640px) {
-	/* 480px以下に適用されるCSS（スマホ用） */
   .Leftside_sns{
     display: none;
   }
@@ -203,8 +226,96 @@
   .Ranking_container{
     margin: 64px 8px 0;
   }
+  .Ranking_slider .draggable{
+    height: auto;
+  }
+  .Ranking_slider .slick-current{
+    /* margin: 0 12px 0px 0; */
+    transform: scale(1.0);
+  }
+  .Ranking_slider .slide-trans {
+    transform: scale(1.0);
+  }
+  .Ranking_slider .slick-slide{
+    margin: auto;
+  }
+  .Ranking_sliderImage{
+    width: 42vw;
+    height: 210px;
+  }
+  .Ranking_slider .slick-current .Ranking_sliderCaption{
+    width: 40vw;
+    margin: 0 auto 0;
+  }
+  .Ranking_slider .Ranking_sliderCaption{
+    width: 40vw;
+  }
+  .Ranking_sliderRecipeTag{
+    max-width: 348px;
+    width: auto;
+    margin: 0 4vw 0;
+  }
+  .Ranking_sliderRecipeTag p{
+    min-width: 77px;
+  }
+  .Ranking_container .slick-current img{
+    height: 184px;
+  }
 
   .New{
     margin: 0 8px 0;
+  }
+  .New_titleBox{
+    text-align: center;
+  }
+  .New_titleBox h2{
+    display: block;
+    margin: auto;
+    font-size: 30px;
+  }
+  .New_titleBox p{
+    font-size: 24px;
+  }
+
+
+  .Backnumber_itemBoxInner{
+    text-align: center;
+  }
+  .Backnumber_itemBox{
+    width: 40vw;
+    min-width: 160px;
+    height: auto;
+    padding: 8px 0;
+    font-size: 16px;
+  }
+  .Backnumber_itemBoxInner{
+    width: auto;
+  }
+  .Backnumber_image img{
+    width: 20vw;
+    min-width: 140px;
+  }
+  .Backnumber_tag{
+    padding: 0 8px 0;
+  }
+  .Backnumber_price{
+    padding: 0 8px 0;
+  }
+
+ 
+  .mgznBox1 img{
+    width: 85%;
+  }
+  .Mgzn_box2 {
+    width: 40%;
+    margin: 0 24px 0 0;
+  }
+  .Mgzn_box2 img{
+    width: 40vw;
+    min-width: 120px;
+    max-width: 150px;
+  }
+  .mgr-20{
+    margin: 10px;
   }
 }
