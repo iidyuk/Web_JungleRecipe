@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./asset/img/logo/tree.ico">
+  <link type="image/vnd.microsoft.icon" sizes="96x96" rel="icon" href="./asset/img/logo/tree.ico">
   <title>Behave｜Jungle Recipe</title>
   <!-- ↓リセットCSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.0/destyle.css">
@@ -39,7 +39,7 @@
   $num = 0;
 
   // ↓ NEW用ロジック
-  $new_arrivalWhet = 36; //NEWに表示するレシピ投稿日の設定
+  $new_arrivalWhet = 24; //NEWに表示するレシピ投稿日の設定
   $sql_new = 'SELECT * FROM recipe_tbl WHERE recipe_date > ( NOW( ) - INTERVAL ' . $new_arrivalWhet . ' MONTH);';
   $newSet = mysqli_query($dbobj, $sql_new) or die(mysqli_error($dbobj));
 
@@ -342,7 +342,7 @@
     // ↓ slick 'Ranking_slider'
     $(function() {
       $('.Ranking_slider').slick({
-        autoplay: false, // 自動再生ON OFF
+        autoplay: true, // 自動再生ON OFF
         infinite: true,
         dots: false, // ドットインジケーターON OFF
         centerMode: false, // 両サイドに前後のスライド表示
