@@ -12,6 +12,7 @@
   <!-- ↓slickのJQ&CSS -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+
   <!-- 共通CSS -->
   <link rel="stylesheet" href="./asset/css/style.css">
   <!-- rateyoのCSS -->
@@ -60,6 +61,9 @@
       <p>スクロール位置：<span id="scroll-amount">0px</span></p>
     </div>
   <?php endif; ?>
+
+  <div id="loading">
+  </div>
 
   <!-- ↓↓header -->
   <?php
@@ -317,18 +321,46 @@
   ?>
   <!-- ↑↑footer -->
 
+
   <!-- ↓jQuery -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+  <!-- rateyoのJavaScript -->
+  <script src="asset/js/jquery.rateyo.min.js"></script>
+  
   <!-- ↓slickのJavaScript -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  
   <!-- ↓scriptのJavaScript  -->
   <script src="asset/js/btn_top.js"></script>
   <script src="asset/js/bar_left.js"></script>
-  <!-- rateyoのJavaScript -->
-  <script src="asset/js/jquery.rateyo.min.js"></script>
+  <script src="asset/js/index.js"></script>
+
+  <!-- <script>
+    // 
+    // ↓↓ Loading animation ↓↓
+
+    // ↓Firstvisit の設定
+    window.addEventListener('load', function() {
+      const loading = document.querySelector('#loading');
+      const firstVisit = localStorage.getItem('firstVisit');
+      if (!firstVisit) {
+        // 初回のアクセス時のみローディングアニメーションを表示
+        localStorage.setItem('firstVisit', 'true');
+        loading.classList.add('loaded');
+      } else {
+        // 二回目以降はローディングアニメーションを非表示にする
+        loading.style.display = 'none';
+      }
+    });
+
+    // ↓アニメーションが終わったら#splashエリアをフェードアウト
+    $("#loading").delay(250).fadeOut(250);
+
+    // ↑↑ Loading animation ↑↑
+    // 
 
 
-  <script>
     // ↓ rateYo
     $('.star').rateYo({
       precision: 1,
@@ -429,7 +461,12 @@
     $(window).scroll(function() {
       $('#scroll-amount').text($(this).scrollTop() + 'px');
     });
-  </script>
+
+  </script> -->
+
+
+
+
 
 </body>
 

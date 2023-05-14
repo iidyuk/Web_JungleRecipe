@@ -32,10 +32,12 @@
 }
 
 .breadcrumbs {
+  max-width: 1200px;
+  margin: 0 auto;
   /* height: 48px;
   line-height: 48px; */
   /* width: 770px; */
-  margin: 4px auto 0;
+  /* margin: 4px auto 0; */
 }
 
 .breadcrumbs li {
