@@ -3,18 +3,18 @@
 // ↓↓ Loading animation ↓↓
 
 // ↓Firstvisit の設定
-window.addEventListener('load', function() {
-  const loading = document.querySelector('#loading');
-  const firstVisit = localStorage.getItem('firstVisit');
-  if (!firstVisit) {
-    // 初回のアクセス時のみローディングアニメーションを表示
-    localStorage.setItem('firstVisit', 'true');
-    loading.classList.add('loaded');
-  } else {
-    // 二回目以降はローディングアニメーションを非表示にする
-    loading.style.display = 'none';
-  }
-});
+// window.addEventListener('load', function() {
+//   const loading = document.querySelector('#loading');
+//   const firstVisit = localStorage.getItem('firstVisit');
+//   if (!firstVisit) {
+//     // 初回のアクセス時のみローディングアニメーションを表示
+//     localStorage.setItem('firstVisit', 'true');
+//     loading.classList.add('loaded');
+//   } else {
+//     // 二回目以降はローディングアニメーションを非表示にする
+//     loading.style.display = 'none';
+//   }
+// });
 
 // ↓アニメーションが終わったら#splashエリアをフェードアウト
 $("#loading").delay(250).fadeOut(250);
