@@ -62,7 +62,6 @@
     min-width: 240px;
   }
 
-
   .Ranking_titleBox{
     text-align: center;
   }
@@ -214,8 +213,6 @@
     width: 90vw;
     max-width: 480px;
   }
-
-
 }
 
 @media screen and (max-width: 640px) {
@@ -231,17 +228,21 @@
   }
   .Ranking_slider .slick-current{
     /* margin: 0 12px 0px 0; */
-    transform: scale(1.0);
+
   }
-  .Ranking_slider .slide-trans {
+  /* .Ranking_slider .slide-trans {
     transform: scale(1.0);
-  }
+  } */
   .Ranking_slider .slick-slide{
     margin: auto;
   }
   .Ranking_sliderImage{
     width: 42vw;
     height: 210px;
+  }
+  .Ranking_slider .slick-current {
+    transform: scale(1.2);
+
   }
   .Ranking_slider .slick-current .Ranking_sliderCaption{
     width: 40vw;

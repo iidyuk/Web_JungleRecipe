@@ -15,7 +15,7 @@
 $(function() {
   var leftsidesns = $('.Leftside_sns');
   $(window).on('load resize', function() {
-    if ($(window).width() <= 640) {
+    if ($(window).width() <= 1280) {
       leftsidesns.hide();
       return;
     }

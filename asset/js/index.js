@@ -36,7 +36,7 @@ $('.star').rateYo({
 // ↓ slick 'Ranking_slider'
 $(function() {
   $('.Ranking_slider').not('.slick-initialized').slick({
-    autoplay: true, // 自動再生ON OFF
+    autoplay: false, // 自動再生ON OFF
     infinite: true,
     dots: false, // ドットインジケーターON OFF
     centerMode: false, // 両サイドに前後のスライド表示
@@ -84,6 +84,42 @@ $(function() {
 // ↑ slick 'Ranking_slider'
 
 // ↓ slick 'New_slider'
+// $(function() {
+//   let New_sliderOptions = {
+//     autoplay: false,
+//     dots: false,
+//     centerMode: false,
+//     centerPadding: '5px',
+//     slidesToShow: 5,
+//     arrows: true,
+//     adaptiveHeight: false,
+//     prevArrow: '<img src="./asset/img/btn/left.png" class="slide-arrow prev-arrow">',
+//     nextArrow: '<img src="./asset/img/btn/right.png" class="slide-arrow next-arrow">'
+//   };
+
+//   // load時の可変設定
+//   $(window).on('load', function() {
+//     if ($(window).width() <= 1280) {
+//       $('.New_slider').not('.slick-initialized').slick('unslick');
+//     } else {
+//       $('.New_slider').not('.slick-initialized').slick(New_sliderOptions);
+//     }
+//   });
+
+//   // resize時の可変設定
+//   $(window).resize(function() {
+//     if (window.matchMedia('(max-width: 1280px)').matches) {
+//       $('.New_slider').not('.slick-initialized').slick('unslick');
+//     } else {
+//       $('.New_slider').not('.slick-initialized').slick(New_sliderOptions);
+//     }
+//   });
+
+//   $('.New_slider').not('.slick-initialized').slick(New_sliderOptions);
+// });
+// ↑ slick 'New_slider'
+
+// ↓ slick 'New_slider'
 $(function() {
   let New_sliderOptions = {
     autoplay: false,
@@ -100,7 +136,7 @@ $(function() {
   // load時の可変設定
   $(window).on('load', function() {
     if ($(window).width() <= 1280) {
-      $('.New_slider').not('.slick-initialized').slick('unslick');
+      $('.New_slider').slick('unslick');
     } else {
       $('.New_slider').not('.slick-initialized').slick(New_sliderOptions);
     }
@@ -109,13 +145,13 @@ $(function() {
   // resize時の可変設定
   $(window).resize(function() {
     if (window.matchMedia('(max-width: 1280px)').matches) {
-      $('.New_slider').not('.slick-initialized').slick('unslick');
+      $('.New_slider').slick('unslick');
     } else {
       $('.New_slider').not('.slick-initialized').slick(New_sliderOptions);
     }
   });
 
-  $('.New_slider').not('.slick-initialized').slick(New_sliderOptions);
+  $('.New_slider').slick(New_sliderOptions);
 });
 // ↑ slick 'New_slider'
 

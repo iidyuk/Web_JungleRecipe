@@ -97,7 +97,7 @@
       </div>
 
       <div class="Footer_logo">
-        <a class="Logo_link" href="index.php">
+        <a class="Logo_link" href="../index.php">
           <img src="./asset/img/logo/logo.png" alt="Tarzan Jungle Recipe" width="500">
         </a>
       </div>
