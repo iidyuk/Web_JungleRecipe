@@ -122,7 +122,7 @@ $(function() {
 // ↓ slick 'New_slider'
 $(function() {
   let New_sliderOptions = {
-    autoplay: false,
+    autoplay: true,
     dots: false,
     centerMode: false,
     centerPadding: '5px',

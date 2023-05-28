@@ -226,13 +226,7 @@
   .Ranking_slider .draggable{
     height: auto;
   }
-  .Ranking_slider .slick-current{
-    /* margin: 0 12px 0px 0; */
-
-  }
-  /* .Ranking_slider .slide-trans {
-    transform: scale(1.0);
-  } */
+ 
   .Ranking_slider .slick-slide{
     margin: auto;
   }
@@ -241,8 +235,13 @@
     height: 210px;
   }
   .Ranking_slider .slick-current {
-    transform: scale(1.2);
-
+    transform: scale(1.0);
+  }
+  .Ranking_slider .slide-trans {
+    transform: scale(1.0);
+  }
+  .Ranking_slider .slick-current .Ranking_sliderInner img{
+    margin: 0px auto;
   }
   .Ranking_slider .slick-current .Ranking_sliderCaption{
     width: 40vw;
